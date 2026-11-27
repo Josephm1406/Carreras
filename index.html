@@ -148,7 +148,7 @@
             transition: width 0.06s linear;
         }
 
-        /* Controles táctiles para celulares y tablets Android */
+        /* Controles táctiles ergonómicos para celulares y tablets Android */
         #touchControls {
             position: absolute;
             inset: 0;
@@ -159,56 +159,127 @@
         #touchControls.active { display: block; }
         .touch-cluster {
             position: absolute;
-            bottom: max(14px, env(safe-area-inset-bottom));
+            bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
             display: flex;
-            gap: 10px;
             pointer-events: auto;
         }
-        .touch-left-cluster { left: max(14px, env(safe-area-inset-left)); align-items: center; }
-        .touch-right-cluster { right: max(14px, env(safe-area-inset-right)); align-items: flex-end; }
+        .touch-left-cluster {
+            left: max(16px, calc(env(safe-area-inset-left) + 10px));
+            gap: 14px;
+            align-items: flex-end;
+        }
+        .touch-right-cluster {
+            right: max(16px, calc(env(safe-area-inset-right) + 10px));
+            gap: 12px;
+            align-items: flex-end;
+        }
         .touch-pedal-stack {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 11px;
         }
         .touch-btn {
-            width: 58px;
-            height: 58px;
-            border-radius: 16px;
-            background: rgba(15, 23, 42, 0.72);
-            border: 2px solid rgba(148, 163, 184, 0.55);
+            width: clamp(64px, 16.5vw, 82px);
+            height: clamp(64px, 16.5vw, 82px);
+            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.68);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 2.5px solid rgba(148, 163, 184, 0.6);
             color: #f8fafc;
-            font-size: 20px;
+            font-size: clamp(22px, 5.5vw, 28px);
             font-weight: 900;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 2px;
             touch-action: none;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.06s ease, background 0.08s ease, border-color 0.08s ease;
         }
         .touch-btn.pressed {
-            background: rgba(0, 180, 216, 0.45);
+            background: rgba(0, 180, 216, 0.48);
             border-color: #38bdf8;
-            transform: scale(0.95);
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+            transform: scale(0.93);
+        }
+        .touch-btn .btn-sub {
+            font-size: 9px;
+            letter-spacing: 0.6px;
+            font-weight: 800;
+            opacity: 0.85;
         }
         .touch-btn.pedal {
-            width: 56px;
-            height: 46px;
-            font-size: 16px;
-            border-radius: 13px;
+            width: clamp(62px, 15.5vw, 76px);
+            height: clamp(52px, 12.5vw, 64px);
+            font-size: clamp(17px, 4.2vw, 21px);
+            border-radius: 16px;
+        }
+        .touch-btn.pedal-gas {
+            border-color: rgba(6, 214, 160, 0.68);
+            color: #d1fae5;
+        }
+        .touch-btn.pedal-gas.pressed {
+            background: rgba(6, 214, 160, 0.42);
+            border-color: #06d6a0;
+            box-shadow: 0 0 18px rgba(6, 214, 160, 0.5);
+        }
+        .touch-btn.pedal-brake {
+            border-color: rgba(255, 89, 94, 0.68);
+            color: #ffe4e6;
+        }
+        .touch-btn.pedal-brake.pressed {
+            background: rgba(255, 89, 94, 0.42);
+            border-color: #ff595e;
+            box-shadow: 0 0 18px rgba(255, 89, 94, 0.5);
         }
         .touch-btn.nitro-btn {
-            width: 66px;
-            height: 100px;
-            font-size: 11px;
-            flex-direction: column;
-            gap: 2px;
-            border-color: rgba(255, 183, 3, 0.75);
+            width: clamp(64px, 16vw, 78px);
+            height: calc(clamp(52px, 12.5vw, 64px) * 2 + 11px);
+            font-size: 12px;
+            border-radius: 18px;
+            border-color: rgba(255, 183, 3, 0.78);
             color: #ffd166;
         }
+        .touch-btn.nitro-btn .nitro-flame {
+            font-size: 22px;
+            line-height: 1;
+        }
         .touch-btn.nitro-btn.pressed {
-            background: rgba(255, 183, 3, 0.35);
+            background: rgba(255, 183, 3, 0.40);
             border-color: #ffb703;
+            box-shadow: 0 0 22px rgba(255, 183, 3, 0.65);
+        }
+
+        /* Ajuste ergonómico en modo horizontal (landscape) en celulares */
+        @media (max-height: 480px) and (orientation: landscape) {
+            .touch-cluster {
+                bottom: max(12px, env(safe-area-inset-bottom));
+            }
+            .touch-left-cluster {
+                left: max(18px, env(safe-area-inset-left));
+                gap: 12px;
+            }
+            .touch-right-cluster {
+                right: max(18px, env(safe-area-inset-right));
+                gap: 10px;
+            }
+            .touch-btn {
+                width: 62px;
+                height: 62px;
+                border-radius: 16px;
+                font-size: 22px;
+            }
+            .touch-btn.pedal {
+                width: 60px;
+                height: 46px;
+                font-size: 16px;
+            }
+            .touch-btn.nitro-btn {
+                width: 62px;
+                height: 103px;
+            }
         }
 
         /* Pantallas */
@@ -788,19 +859,31 @@
     <button id="btnCameraToggle" class="top-pill-btn" onclick="cycleCameraMode()">📷 CÁMARA: NORMAL</button>
     <button id="btnMenuInGame" onclick="setScreen('HOME')">Menú</button>
 
-    <!-- Controles táctiles para celular / tablet Android -->
+    <!-- Controles táctiles ergonómicos para celular / tablet Android -->
     <div id="touchControls">
         <div class="touch-cluster touch-left-cluster">
-            <button id="touchLeft" class="touch-btn" aria-label="Izquierda">◀</button>
-            <button id="touchRight" class="touch-btn" aria-label="Derecha">▶</button>
+            <button id="touchLeft" class="touch-btn" aria-label="Izquierda">
+                <span>◀</span>
+                <span class="btn-sub">IZQ</span>
+            </button>
+            <button id="touchRight" class="touch-btn" aria-label="Derecha">
+                <span>▶</span>
+                <span class="btn-sub">DER</span>
+            </button>
         </div>
         <div class="touch-cluster touch-right-cluster">
             <div class="touch-pedal-stack">
-                <button id="touchUp" class="touch-btn pedal" aria-label="Acelerar">▲</button>
-                <button id="touchDown" class="touch-btn pedal" aria-label="Frenar">▼</button>
+                <button id="touchUp" class="touch-btn pedal pedal-gas" aria-label="Acelerar">
+                    <span>▲</span>
+                    <span class="btn-sub">ACEL</span>
+                </button>
+                <button id="touchDown" class="touch-btn pedal pedal-brake" aria-label="Frenar">
+                    <span>▼</span>
+                    <span class="btn-sub">FRENO</span>
+                </button>
             </div>
             <button id="touchNitro" class="touch-btn nitro-btn" aria-label="Nitro">
-                <span>🔥</span>
+                <span class="nitro-flame">🔥</span>
                 <span>NITRO</span>
             </button>
         </div>
@@ -1037,9 +1120,11 @@ let cameraModeIndex = 0;
 function getCameraConfig() {
     const base = CAMERA_MODES[cameraModeIndex] || CAMERA_MODES[0];
     const scaleFactor = Math.max(0.72, Math.min(1.25, HEIGHT / 600));
+    const isPortraitMobile = HEIGHT > WIDTH && WIDTH <= 820;
+    const mobileBottomClearance = isPortraitMobile ? Math.round(HEIGHT * 0.13) : 0;
     return {
         ...base,
-        carY: base.firstPerson ? HEIGHT : Math.max(120, HEIGHT - base.carOffset * scaleFactor),
+        carY: base.firstPerson ? HEIGHT : Math.max(120, HEIGHT - base.carOffset * scaleFactor - mobileBottomClearance),
         carScale: base.carScale * scaleFactor
     };
 }
