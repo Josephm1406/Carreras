@@ -48,7 +48,7 @@
             position: absolute;
             top: max(10px, env(safe-area-inset-top));
             right: max(12px, env(safe-area-inset-right));
-            background: rgba(15, 23, 42, 0.92);
+            background: rgba(15, 23, 42, 0.94);
             border: 2px solid #ffb703;
             color: #ffd166;
             padding: 4px 10px;
@@ -74,7 +74,7 @@
         .top-pill-btn {
             position: absolute;
             display: none;
-            background: rgba(15, 23, 42, 0.92);
+            background: rgba(15, 23, 42, 0.94);
             border: 2px solid #00b4d8;
             color: #e0f2fe;
             padding: 4px 9px;
@@ -105,12 +105,12 @@
             flex-direction: column;
             gap: 3px;
             z-index: 20;
-            background: rgba(15, 23, 42, 0.88);
+            background: rgba(15, 23, 42, 0.9);
             border: 1px solid rgba(148, 163, 184, 0.35);
             padding: 6px 9px;
             border-radius: 10px;
             font-family: monospace;
-            max-width: 158px;
+            max-width: 162px;
         }
         #raceHud.active { display: flex; }
         .hud-row {
@@ -145,10 +145,10 @@
             height: 100%;
             width: 100%;
             background: linear-gradient(90deg, #00b4d8, #38bdf8, #ffd166);
-            transition: width 0.06s linear;
+            transition: width 0.08s linear;
         }
 
-        /* Controles táctiles ergonómicos para celulares y tablets Android */
+        /* Controles táctiles ligeros y ergonómicos para Android */
         #touchControls {
             position: absolute;
             inset: 0;
@@ -182,10 +182,8 @@
             width: clamp(64px, 16.5vw, 82px);
             height: clamp(64px, 16.5vw, 82px);
             border-radius: 20px;
-            background: rgba(15, 23, 42, 0.68);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border: 2.5px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.82);
+            border: 2.5px solid rgba(148, 163, 184, 0.65);
             color: #f8fafc;
             font-size: clamp(22px, 5.5vw, 28px);
             font-weight: 900;
@@ -195,13 +193,13 @@
             justify-content: center;
             gap: 2px;
             touch-action: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            will-change: transform;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
             transition: transform 0.06s ease, background 0.08s ease, border-color 0.08s ease;
         }
         .touch-btn.pressed {
-            background: rgba(0, 180, 216, 0.48);
+            background: rgba(0, 180, 216, 0.52);
             border-color: #38bdf8;
-            box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
             transform: scale(0.93);
         }
         .touch-btn .btn-sub {
@@ -217,29 +215,27 @@
             border-radius: 16px;
         }
         .touch-btn.pedal-gas {
-            border-color: rgba(6, 214, 160, 0.68);
+            border-color: rgba(6, 214, 160, 0.72);
             color: #d1fae5;
         }
         .touch-btn.pedal-gas.pressed {
-            background: rgba(6, 214, 160, 0.42);
+            background: rgba(6, 214, 160, 0.45);
             border-color: #06d6a0;
-            box-shadow: 0 0 18px rgba(6, 214, 160, 0.5);
         }
         .touch-btn.pedal-brake {
-            border-color: rgba(255, 89, 94, 0.68);
+            border-color: rgba(255, 89, 94, 0.72);
             color: #ffe4e6;
         }
         .touch-btn.pedal-brake.pressed {
-            background: rgba(255, 89, 94, 0.42);
+            background: rgba(255, 89, 94, 0.45);
             border-color: #ff595e;
-            box-shadow: 0 0 18px rgba(255, 89, 94, 0.5);
         }
         .touch-btn.nitro-btn {
             width: clamp(64px, 16vw, 78px);
             height: calc(clamp(52px, 12.5vw, 64px) * 2 + 11px);
             font-size: 12px;
             border-radius: 18px;
-            border-color: rgba(255, 183, 3, 0.78);
+            border-color: rgba(255, 183, 3, 0.8);
             color: #ffd166;
         }
         .touch-btn.nitro-btn .nitro-flame {
@@ -247,12 +243,10 @@
             line-height: 1;
         }
         .touch-btn.nitro-btn.pressed {
-            background: rgba(255, 183, 3, 0.40);
+            background: rgba(255, 183, 3, 0.44);
             border-color: #ffb703;
-            box-shadow: 0 0 22px rgba(255, 183, 3, 0.65);
         }
 
-        /* Ajuste ergonómico en modo horizontal (landscape) en celulares */
         @media (max-height: 480px) and (orientation: landscape) {
             .touch-cluster {
                 bottom: max(12px, env(safe-area-inset-bottom));
@@ -408,7 +402,7 @@
             -webkit-overflow-scrolling: touch;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
         .section-title {
             margin: 0 0 8px;
@@ -465,20 +459,66 @@
             color: #cbd5e1;
         }
 
-        /* Filtros de eventos */
+        /* Resumen y Filtros de Récords / Eventos */
+        .records-summary-box {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98));
+            border: 1.5px solid #38bdf8;
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .records-summary-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .records-summary-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #38bdf8;
+            letter-spacing: 0.4px;
+        }
+        .records-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+        }
+        .rec-stat-pill {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 6px 8px;
+            text-align: center;
+        }
+        .rec-stat-pill .stat-val {
+            font-size: 13px;
+            font-weight: 900;
+            font-family: monospace;
+            color: #ffd166;
+        }
+        .rec-stat-pill .stat-lbl {
+            font-size: 9.5px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 5px;
             align-items: center;
         }
         .btn-filter {
             background: #1e293b;
             border: 1px solid #475569;
             color: #cbd5e1;
-            padding: 4px 9px;
+            padding: 4px 8px;
             border-radius: 999px;
-            font-size: 10.5px;
+            font-size: 10px;
             font-weight: 700;
             cursor: pointer;
         }
@@ -486,6 +526,21 @@
             background: #00b4d8;
             color: #071921;
             border-color: #00b4d8;
+        }
+        .btn-rec-filter {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #cbd5e1;
+            padding: 4px 9px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .btn-rec-filter.active {
+            background: #ffb703;
+            color: #111827;
+            border-color: #ffb703;
         }
 
         .grid-events {
@@ -523,7 +578,18 @@
         .event-card h4 { margin: 0; font-size: 12.5px; color: #ffd166; }
         .event-card p { margin: 0; font-size: 10px; color: #cbd5e1; line-height: 1.25; }
         .event-meta { font-size: 10px; color: #06d6a0; font-weight: 700; }
-        .event-record { font-size: 9.5px; color: #38bdf8; font-family: monospace; line-height: 1.3; }
+        .event-record-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid #334155;
+            border-radius: 7px;
+            padding: 5px 6px;
+            font-size: 9.5px;
+            font-family: monospace;
+            line-height: 1.35;
+            color: #cbd5e1;
+        }
+        .rec-tag-race { color: #06d6a0; font-weight: 800; }
+        .rec-tag-tt   { color: #38bdf8; font-weight: 800; }
 
         .grid-cars-shop, .grid-upgrades {
             display: grid;
@@ -814,6 +880,7 @@
             }
             .hud-tip { display: none; }
             .grid-missions, .grid-cars-shop, .grid-upgrades { grid-template-columns: 1fr; }
+            .records-stats-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-events { grid-template-columns: repeat(2, 1fr); }
             .grid-cosmetics { grid-template-columns: repeat(2, 1fr); }
             .grid-colors { grid-template-columns: repeat(3, 1fr); }
@@ -843,7 +910,7 @@
             <span id="hudSpeed" class="speed-text">VELOCIDAD: 0/120 KM/H</span>
         </div>
         <div class="hud-row">
-            <span id="hudRecord" class="speed-text" style="color:#38bdf8;">RÉCORD: 0 PTS · V.MEJOR: --</span>
+            <span id="hudRecord" class="speed-text" style="color:#38bdf8;">RÉCORD CARRERA: 0 PTS · --</span>
         </div>
         <div class="nitro-wrap">
             <span>🔥 NITRO</span>
@@ -936,13 +1003,27 @@
         </div>
     </div>
 
-    <!-- EVENTOS Y MAPAS -->
+    <!-- EVENTOS, MAPAS Y RESUMEN DE RÉCORDS POR MODO -->
     <div id="screenEvents" class="overlay">
         <div class="panel-header">
             <button class="btn-back" onclick="setScreen('HOME')">← Volver</button>
-            <h2>Eventos (12 Circuitos), Clima y Récords</h2>
+            <h2>Eventos (12 Circuitos) y Récords por Modo</h2>
         </div>
         <div class="panel-content">
+            <!-- Resumen de Récords con Filtro por Modo -->
+            <div class="records-summary-box">
+                <div class="records-summary-header">
+                    <span class="records-summary-title">🏆 RESUMEN DE RÉCORDS POR MODO</span>
+                    <div class="filter-bar">
+                        <button class="btn-rec-filter active" data-rec="both" onclick="setRecordModeFilter('both')">📊 Ambos Modos</button>
+                        <button class="btn-rec-filter" data-rec="race" onclick="setRecordModeFilter('race')">🏁 Carrera</button>
+                        <button class="btn-rec-filter" data-rec="timetrial" onclick="setRecordModeFilter('timetrial')">⏱️ Contrarreloj</button>
+                    </div>
+                </div>
+                <div id="recordsSummaryGrid" class="records-stats-grid"></div>
+            </div>
+
+            <!-- Filtro de Clima y Cambio de Modo de Juego -->
             <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
                 <div class="filter-bar">
                     <button class="btn-filter active" data-w="all" onclick="setEventWeatherFilter('all')">🌍 Todos (12)</button>
@@ -1065,7 +1146,7 @@
                 <div>Vueltas Completadas: <strong id="goLaps" style="color:#ffd166;">0</strong></div>
                 <div>Mejor Tiempo de Vuelta: <strong id="goBestLap" style="color:#38bdf8;">--</strong></div>
                 <div>Puntaje Obtenido: <strong id="goScore" style="color:#06d6a0;">0</strong></div>
-                <div>Récord del Mapa: <strong id="goMapRecord" style="color:#ffd166;">0 PTS · 0 VTS</strong></div>
+                <div>Récord del Mapa (Modo): <strong id="goMapRecord" style="color:#ffd166;">0 PTS · 0 VTS</strong></div>
                 <div>Monedas Totales: <strong id="goCoins" style="color:#ffb703;">0</strong></div>
             </div>
             <div class="gameover-actions">
@@ -1081,12 +1162,13 @@
 <script>
 const gameContainer = document.getElementById('gameContainer');
 const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d', { alpha: false });
 const garageCanvas = document.getElementById('garagePreviewCanvas');
-const gCtx = garageCanvas.getContext('2d');
+const gCtx = garageCanvas.getContext('2d', { alpha: false });
 
 let WIDTH = canvas.width;
 let HEIGHT = canvas.height;
+let isMobilePerfMode = false;
 const FOV = 280;
 const ROAD_WIDTH = 1000;
 const MAX_LIVES = 5;
@@ -1108,7 +1190,7 @@ function formatLapSec(sec) {
     return `${sec.toFixed(2)}s`;
 }
 
-// --- 4 PERSPECTIVAS DE CÁMARA (ADAPTADAS AL ALTO REAL DEL CANVAS) ---
+// --- 4 PERSPECTIVAS DE CÁMARA ---
 const CAMERA_MODES = [
     { id: 'normal',  label: 'NORMAL',  horizonRatio: 0.42, height: 110, carOffset: 35,  carScale: 1.38, firstPerson: false },
     { id: 'low',     label: 'RASANTE', horizonRatio: 0.48, height: 74,  carOffset: 24,  carScale: 1.52, firstPerson: false },
@@ -1143,7 +1225,7 @@ window.addEventListener('keydown', e => {
     }
 });
 
-// --- 12 EVENTOS CON MAPAS Y CLIMA ('clear' | 'rain' | 'mist') ---
+// --- 12 EVENTOS CON MAPAS Y CLIMA ---
 const RACE_EVENTS = [
     {
         id: 'coast', name: 'Ruta Costera', mapTag: 'Lluvia / Césped', weather: 'rain',
@@ -1207,7 +1289,7 @@ const RACE_EVENTS = [
     },
     {
         id: 'costa_verde', name: 'Costa Verde Nocturna', mapTag: 'Niebla / Acantilado', weather: 'mist',
-        desc: 'Recorrido nocturno frente al océano Pacífico con bruma y faros costeros.',
+        desc: 'Recorrurno frente al océano Pacífico con bruma y faros costeros.',
         curveAmp: 1.75, enemySpeedMult: 1.16, coinBonus: 19, scoreMult: 1.85,
         theme: { skyTop: '#042f2e', skyMid: '#115e59', skyBot: '#5eead4', sunColor: '#ccfbf1', groundA: '#134e4a', groundB: '#0f3f3c', roadA: '#1e293b', roadB: '#162032', rumbleA: '#2dd4bf', rumbleB: '#f8fafc', sceneryStyle: 'coast' }
     },
@@ -1293,7 +1375,7 @@ const UPGRADE_DEFS = {
     tires:  { id: 'tires',  icon: '🛞', name: 'Neumáticos', statLabel: '+Agarre en Curvas',           costs: [80, 160, 280, 420] }
 };
 
-// --- DEFINICIÓN DE MISIONES DIARIAS Y LOGROS ---
+// --- MISIONES DIARIAS Y LOGROS ---
 const DAILY_MISSION_TEMPLATES = [
     { id: 'dm_coins_15',  title: 'Cazador de Monedas',  desc: 'Recoge 15 monedas en pista.',      type: 'coins',     target: 15,   reward: 120 },
     { id: 'dm_pass_8',    title: 'Piloto Ágil',         desc: 'Adelanta a 8 autos rivales.',      type: 'overtakes', target: 8,    reward: 140 },
@@ -1390,6 +1472,43 @@ if (!saveData.claimedAchievements) saveData.claimedAchievements = [];
 if (saveData.dailyDate !== getTodayKey() || !Array.isArray(saveData.dailyMissions) || saveData.dailyMissions.length === 0) {
     saveData.dailyDate = getTodayKey();
     saveData.dailyMissions = generateDailyMissions(saveData.dailySeed || 0);
+}
+
+// --- RÉCORDS SEPARADOS POR MODO ('race' y 'timetrial') ---
+function normalizeModeSlot(slot) {
+    return {
+        bestScore: slot && typeof slot.bestScore === 'number' ? slot.bestScore : 0,
+        bestLaps: slot && typeof slot.bestLaps === 'number' ? slot.bestLaps : 0,
+        bestLapSec: slot && typeof slot.bestLapSec === 'number' && slot.bestLapSec > 0 ? slot.bestLapSec : null
+    };
+}
+
+function getMapRecord(eventId, mode = saveData.gameMode) {
+    const raw = saveData.mapRecords[eventId];
+    if (!raw) return normalizeModeSlot(null);
+
+    // Migración automática si existía formato plano anterior
+    if (typeof raw.bestScore === 'number' || typeof raw.bestLaps === 'number' || typeof raw.bestLapSec === 'number') {
+        const migrated = {
+            race: normalizeModeSlot(raw),
+            timetrial: normalizeModeSlot(null)
+        };
+        saveData.mapRecords[eventId] = migrated;
+        return migrated[mode] || migrated.race;
+    }
+
+    const slot = raw[mode];
+    return normalizeModeSlot(slot);
+}
+
+function setMapRecord(eventId, mode, newData) {
+    const prevRace = getMapRecord(eventId, 'race');
+    const prevTT = getMapRecord(eventId, 'timetrial');
+    const updatedSlot = normalizeModeSlot(newData);
+    saveData.mapRecords[eventId] = {
+        race: mode === 'race' ? updatedSlot : prevRace,
+        timetrial: mode === 'timetrial' ? updatedSlot : prevTT
+    };
 }
 
 function persistSave() {
@@ -1508,15 +1627,6 @@ function renderMissions() {
     });
 }
 
-function getMapRecord(eventId) {
-    const rec = saveData.mapRecords[eventId];
-    return {
-        bestScore: rec && typeof rec.bestScore === 'number' ? rec.bestScore : 0,
-        bestLaps: rec && typeof rec.bestLaps === 'number' ? rec.bestLaps : 0,
-        bestLapSec: rec && typeof rec.bestLapSec === 'number' ? rec.bestLapSec : null
-    };
-}
-
 function toggleGameMode() {
     saveData.gameMode = saveData.gameMode === 'race' ? 'timetrial' : 'race';
     persistSave();
@@ -1574,15 +1684,17 @@ function updateTopUI() {
     document.getElementById('coinCount').textContent = saveData.coins;
     const ev = getSelectedEventObj();
     const car = getSelectedCarObj();
-    const modeLabel = saveData.gameMode === 'timetrial' ? 'Contrarreloj' : 'Carrera';
+    const isTT = saveData.gameMode === 'timetrial';
+    const modeLabel = isTT ? 'Contrarreloj' : 'Carrera';
     document.getElementById('btnModeToggle').textContent = `⏱️ MODO: ${modeLabel.toUpperCase()}`;
     const evBtn = document.getElementById('btnEventModeSwitch');
-    if (evBtn) evBtn.textContent = `Modo Actual: ${modeLabel.toUpperCase()}`;
+    if (evBtn) evBtn.textContent = `Modo de Juego: ${modeLabel.toUpperCase()}`;
     document.getElementById('selectedSummary').textContent =
         `Modo: ${modeLabel} · Mapa: ${ev.name} · Auto: ${car.name}`;
 
-    const rec = getMapRecord(ev.id);
-    document.getElementById('hudRecord').textContent = `RÉCORD: ${rec.bestScore} PTS · V.MEJOR: ${formatLapSec(rec.bestLapSec)}`;
+    const rec = getMapRecord(ev.id, saveData.gameMode);
+    const shortTag = isTT ? 'CONTRARRELOJ' : 'CARRERA';
+    document.getElementById('hudRecord').textContent = `RÉCORD ${shortTag}: ${rec.bestScore} PTS · ${formatLapSec(rec.bestLapSec)}`;
     updateMissionsNotif();
 }
 
@@ -1614,11 +1726,20 @@ function getCarSVG(bodyType, colorHex) {
 
 let currentScreen = 'HOME';
 let eventWeatherFilter = 'all';
+let recordModeFilter = 'both'; // 'both' | 'race' | 'timetrial'
 
 function setEventWeatherFilter(w) {
     eventWeatherFilter = w;
     document.querySelectorAll('.btn-filter').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.w === w);
+    });
+    renderEvents();
+}
+
+function setRecordModeFilter(modeFilter) {
+    recordModeFilter = modeFilter;
+    document.querySelectorAll('.btn-rec-filter').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.rec === modeFilter);
     });
     renderEvents();
 }
@@ -1659,7 +1780,76 @@ function setScreen(screen) {
     syncAndroidViewportSize();
 }
 
+function computeRecordsSummary(filterMode) {
+    let totalScore = 0;
+    let totalLaps = 0;
+    let mapsPlayed = 0;
+    let fastestLapSec = null;
+    let fastestMapName = '--';
+
+    RACE_EVENTS.forEach(ev => {
+        const rRace = getMapRecord(ev.id, 'race');
+        const rTT = getMapRecord(ev.id, 'timetrial');
+
+        if (filterMode === 'race') {
+            totalScore += rRace.bestScore;
+            totalLaps += rRace.bestLaps;
+            if (rRace.bestScore > 0 || rRace.bestLaps > 0) mapsPlayed++;
+            if (rRace.bestLapSec !== null && (fastestLapSec === null || rRace.bestLapSec < fastestLapSec)) {
+                fastestLapSec = rRace.bestLapSec;
+                fastestMapName = ev.name;
+            }
+        } else if (filterMode === 'timetrial') {
+            totalScore += rTT.bestScore;
+            totalLaps += rTT.bestLaps;
+            if (rTT.bestScore > 0 || rTT.bestLaps > 0) mapsPlayed++;
+            if (rTT.bestLapSec !== null && (fastestLapSec === null || rTT.bestLapSec < fastestLapSec)) {
+                fastestLapSec = rTT.bestLapSec;
+                fastestMapName = ev.name;
+            }
+        } else {
+            totalScore += rRace.bestScore + rTT.bestScore;
+            totalLaps += rRace.bestLaps + rTT.bestLaps;
+            if (rRace.bestScore > 0 || rRace.bestLaps > 0 || rTT.bestScore > 0 || rTT.bestLaps > 0) mapsPlayed++;
+            const bestOfMap = [rRace.bestLapSec, rTT.bestLapSec].filter(v => v !== null);
+            bestOfMap.forEach(sec => {
+                if (fastestLapSec === null || sec < fastestLapSec) {
+                    fastestLapSec = sec;
+                    fastestMapName = ev.name;
+                }
+            });
+        }
+    });
+
+    return { totalScore, totalLaps, mapsPlayed, fastestLapSec, fastestMapName };
+}
+
 function renderEvents() {
+    // 1. Renderizar resumen de récords filtrado por modo
+    const sum = computeRecordsSummary(recordModeFilter);
+    const sumGrid = document.getElementById('recordsSummaryGrid');
+    if (sumGrid) {
+        sumGrid.innerHTML = `
+            <div class="rec-stat-pill">
+                <div class="stat-val" style="color:#06d6a0;">${sum.totalScore.toLocaleString()}</div>
+                <div class="stat-lbl">Puntos Récord</div>
+            </div>
+            <div class="rec-stat-pill">
+                <div class="stat-val" style="color:#ffd166;">${sum.totalLaps}</div>
+                <div class="stat-lbl">Vueltas Récord</div>
+            </div>
+            <div class="rec-stat-pill">
+                <div class="stat-val" style="color:#38bdf8;">${sum.mapsPlayed}/${RACE_EVENTS.length}</div>
+                <div class="stat-lbl">Mapas Jugados</div>
+            </div>
+            <div class="rec-stat-pill">
+                <div class="stat-val" style="color:#f472b6;">${formatLapSec(sum.fastestLapSec)}</div>
+                <div class="stat-lbl">Vuelta Top (${sum.fastestLapSec ? sum.fastestMapName.split(' ')[0] : '--'})</div>
+            </div>
+        `;
+    }
+
+    // 2. Renderizar tarjetas de eventos con récords separados por modo
     const grid = document.getElementById('eventsGrid');
     grid.innerHTML = '';
     const filtered = eventWeatherFilter === 'all'
@@ -1668,9 +1858,31 @@ function renderEvents() {
 
     filtered.forEach(ev => {
         const selected = saveData.selectedEvent === ev.id;
-        const rec = getMapRecord(ev.id);
+        const rRace = getMapRecord(ev.id, 'race');
+        const rTT = getMapRecord(ev.id, 'timetrial');
         const t = ev.theme;
         const weatherIcon = ev.weather === 'rain' ? '🌧️ Lluvia' : (ev.weather === 'mist' ? '🌫️ Niebla' : '☀️ Despejado');
+
+        let recordsHtml = '';
+        if (recordModeFilter === 'race') {
+            recordsHtml = `
+                <span class="rec-tag-race">🏁 CARRERA</span><br>
+                🏆 ${rRace.bestScore} PTS · ${rRace.bestLaps} VTS<br>
+                ⏱️ V.Mejor: ${formatLapSec(rRace.bestLapSec)}
+            `;
+        } else if (recordModeFilter === 'timetrial') {
+            recordsHtml = `
+                <span class="rec-tag-tt">⏱️ CONTRARRELOJ</span><br>
+                🏆 ${rTT.bestScore} PTS · ${rTT.bestLaps} VTS<br>
+                ⚡ V.Mejor: ${formatLapSec(rTT.bestLapSec)}
+            `;
+        } else {
+            recordsHtml = `
+                <div><span class="rec-tag-race">🏁 Carrera:</span> ${rRace.bestScore} PTS · ${rRace.bestLaps}V · ${formatLapSec(rRace.bestLapSec)}</div>
+                <div><span class="rec-tag-tt">⏱️ C.Reloj:</span> ${rTT.bestScore} PTS · ${rTT.bestLaps}V · ${formatLapSec(rTT.bestLapSec)}</div>
+            `;
+        }
+
         const card = document.createElement('div');
         card.className = 'event-card' + (selected ? ' selected' : '');
         card.innerHTML = `
@@ -1682,10 +1894,7 @@ function renderEvents() {
                 <h4 style="margin-top:6px;">${ev.name}</h4>
                 <p style="margin-top:2px;">${ev.desc}</p>
             </div>
-            <div class="event-record">
-                🏆 ${rec.bestScore} PTS · ${rec.bestLaps} VTS<br>
-                ⏱️ Mejor Vuelta: ${formatLapSec(rec.bestLapSec)}
-            </div>
+            <div class="event-record-box">${recordsHtml}</div>
             <div class="event-meta">+${ev.coinBonus} 🪙 · x${ev.scoreMult} PTS</div>
             <button class="btn-action ${selected ? 'btn-equipped' : 'btn-equip'}" onclick="selectEvent('${ev.id}')">
                 ${selected ? 'Mapa Activo' : 'Elegir Mapa'}
@@ -1818,7 +2027,7 @@ function renderShop() {
         const card = document.createElement('div');
         card.className = 'card' + (saveData.selectedNeon === neon.id ? ' equipped' : '');
         card.innerHTML = `
-            <div class="neon-swatch" style="background:${neon.color || '#334155'}; box-shadow:${neon.color ? '0 0 10px ' + neon.color : 'none'};"></div>
+            <div class="neon-swatch" style="background:${neon.color || '#334155'};"></div>
             <h4>${neon.name}</h4>
             ${owned
                 ? `<button class="btn-action btn-equipped" disabled>Tuyo</button>`
@@ -1938,6 +2147,7 @@ function renderGarage() {
         <div><strong>Aceleración</strong><br>${Math.round(st.accel * 250)}%</div>
         <div><strong>Agarre</strong><br>${Math.round((st.steer / 0.036) * 100)}%</div>
     `;
+    drawGaragePreview();
 }
 
 function buyUpgrade(id) {
@@ -2079,6 +2289,7 @@ function toggleGarageAutoSpin() {
     const btn = document.getElementById('btnAutoSpin');
     btn.textContent = garageAutoSpin ? '🔄 Auto-Giro: ON' : '⏸️ Auto-Giro: OFF';
     btn.classList.toggle('active', garageAutoSpin);
+    if (currentScreen === 'GARAGE') drawGaragePreview();
 }
 
 function nudgeGarageAngle(deg) {
@@ -2087,11 +2298,13 @@ function nudgeGarageAngle(deg) {
     btn.textContent = '⏸️ Auto-Giro: OFF';
     btn.classList.remove('active');
     garageAngleRad = (garageAngleRad + (deg * Math.PI / 180)) % (Math.PI * 2);
+    if (currentScreen === 'GARAGE') drawGaragePreview();
 }
 
 function cycleGaragePitch() {
     garagePitchPreset = (garagePitchPreset + 1) % GARAGE_PITCH_PRESETS.length;
     garagePitch = GARAGE_PITCH_PRESETS[garagePitchPreset];
+    if (currentScreen === 'GARAGE') drawGaragePreview();
 }
 
 garageCanvas.addEventListener('pointerdown', e => {
@@ -2111,9 +2324,25 @@ window.addEventListener('pointermove', e => {
     garageLastDragY = e.clientY;
     garageAngleRad = (garageAngleRad + dx * 0.016) % (Math.PI * 2);
     garagePitch = Math.max(0.18, Math.min(0.66, garagePitch + dy * 0.004));
+    if (currentScreen === 'GARAGE') drawGaragePreview();
 });
 window.addEventListener('pointerup', () => { garageDragging = false; });
 window.addEventListener('pointercancel', () => { garageDragging = false; });
+
+const shadeCache = new Map();
+function shadeColor(color, percent) {
+    if (!color || !color.startsWith('#')) return color;
+    const key = `${color}_${percent}`;
+    if (shadeCache.has(key)) return shadeCache.get(key);
+    const num = parseInt(color.slice(1), 16);
+    const amt = Math.round(2.55 * percent);
+    const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+    const G = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amt));
+    const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+    const res = `#${((1 << 24) + (R << 16) + (G << 8) + B).toString(16).slice(1)}`;
+    shadeCache.set(key, res);
+    return res;
+}
 
 function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rimObj, decalObj, spoilerObj, neonObj, st, finish) {
     const bodyType = carObj.bodyType;
@@ -2140,15 +2369,10 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
         };
     }
 
-    const glowColor = (neonObj && neonObj.color)
-        ? neonObj.color
-        : shadeColor(colorHex, -10) + '44';
-    const glowGrad = targetCtx.createRadialGradient(cx, cy + 4, 12, cx, cy + 4, 135);
-    glowGrad.addColorStop(0, glowColor);
-    glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-    targetCtx.fillStyle = glowGrad;
+    const glowColor = (neonObj && neonObj.color) ? neonObj.color : 'rgba(56, 189, 248, 0.22)';
+    targetCtx.fillStyle = glowColor;
     targetCtx.beginPath();
-    targetCtx.ellipse(cx, cy + 6, 135, 44, 0, 0, Math.PI * 2);
+    targetCtx.ellipse(cx, cy + 5, 118, 34, 0, 0, Math.PI * 2);
     targetCtx.fill();
 
     const shPts = [
@@ -2165,10 +2389,10 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
     targetCtx.fill();
 
     const wheelPositions = [
-        { x: -halfW * 0.98, z:  halfL * 0.62, side: -1 },
-        { x:  halfW * 0.98, z:  halfL * 0.62, side:  1 },
-        { x: -halfW * 0.98, z: -halfL * 0.62, side: -1 },
-        { x:  halfW * 0.98, z: -halfL * 0.62, side:  1 }
+        { x: -halfW * 0.98, z:  halfL * 0.62 },
+        { x:  halfW * 0.98, z:  halfL * 0.62 },
+        { x: -halfW * 0.98, z: -halfL * 0.62 },
+        { x:  halfW * 0.98, z: -halfL * 0.62 }
     ];
     const wheelR = isSuv ? 19 : 16;
     const wheelsProjected = wheelPositions.map(wp => ({
@@ -2185,14 +2409,6 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
         targetCtx.beginPath();
         targetCtx.ellipse(p.x, p.y, rx, r, 0, 0, Math.PI * 2);
         targetCtx.fill();
-        targetCtx.strokeStyle = '#334155';
-        targetCtx.lineWidth = 1.4;
-        targetCtx.stroke();
-
-        targetCtx.fillStyle = '#475569';
-        targetCtx.beginPath();
-        targetCtx.ellipse(p.x, p.y, rx * 0.66, r * 0.66, 0, 0, Math.PI * 2);
-        targetCtx.fill();
 
         targetCtx.fillStyle = rimObj.color;
         targetCtx.beginPath();
@@ -2201,18 +2417,12 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
 
         targetCtx.strokeStyle = rimObj.accent;
         targetCtx.lineWidth = Math.max(1, 1.5 * p.s);
-        for (let k = 0; k < 4; k++) {
-            const ang = (k * Math.PI) / 4;
-            targetCtx.beginPath();
-            targetCtx.moveTo(p.x - Math.cos(ang) * rx * 0.52, p.y - Math.sin(ang) * r * 0.52);
-            targetCtx.lineTo(p.x + Math.cos(ang) * rx * 0.52, p.y + Math.sin(ang) * r * 0.52);
-            targetCtx.stroke();
-        }
-
-        targetCtx.fillStyle = '#0f172a';
         targetCtx.beginPath();
-        targetCtx.ellipse(p.x, p.y, rx * 0.2, r * 0.2, 0, 0, Math.PI * 2);
-        targetCtx.fill();
+        targetCtx.moveTo(p.x - rx * 0.45, p.y);
+        targetCtx.lineTo(p.x + rx * 0.45, p.y);
+        targetCtx.moveTo(p.x, p.y - r * 0.45);
+        targetCtx.lineTo(p.x, p.y + r * 0.45);
+        targetCtx.stroke();
     }
 
     wheelsProjected.filter(w => w.p.z > 0).forEach(drawWheel);
@@ -2258,23 +2468,6 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
         f.pts.slice(1).forEach(pt => targetCtx.lineTo(pt.x, pt.y));
         targetCtx.closePath();
         targetCtx.fill();
-        targetCtx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
-        targetCtx.lineWidth = 1;
-        targetCtx.stroke();
-
-        if (f.name === 'hood' && finish !== 'matte') {
-            const hlGrad = targetCtx.createLinearGradient(v.tfl.x, v.tfl.y, v.trr.x, v.trr.y);
-            const alpha = finish === 'metallic' ? '0.42' : '0.20';
-            hlGrad.addColorStop(0, `rgba(255,255,255,0)`);
-            hlGrad.addColorStop(0.5, `rgba(255,255,255,${alpha})`);
-            hlGrad.addColorStop(1, `rgba(255,255,255,0)`);
-            targetCtx.fillStyle = hlGrad;
-            targetCtx.beginPath();
-            targetCtx.moveTo(f.pts[0].x, f.pts[0].y);
-            f.pts.slice(1).forEach(pt => targetCtx.lineTo(pt.x, pt.y));
-            targetCtx.closePath();
-            targetCtx.fill();
-        }
 
         if (f.name === 'front_high' && cosA > -0.1) {
             const hl1 = proj3D(-halfW * 0.68, midY + 1.5, halfL + 1);
@@ -2283,14 +2476,6 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
             targetCtx.beginPath(); targetCtx.arc(hl1.x, hl1.y, 4.8 * hl1.s, 0, Math.PI * 2); targetCtx.fill();
             targetCtx.beginPath(); targetCtx.arc(hl2.x, hl2.y, 4.8 * hl2.s, 0, Math.PI * 2); targetCtx.fill();
         }
-        if (f.name === 'front_low' && cosA > -0.1) {
-            const g1 = proj3D(-halfW * 0.48, groundClear + 3, halfL + 1);
-            const g2 = proj3D( halfW * 0.48, groundClear + 3, halfL + 1);
-            targetCtx.strokeStyle = '#090d16';
-            targetCtx.lineWidth = Math.max(2, 6 * g1.s);
-            targetCtx.beginPath(); targetCtx.moveTo(g1.x, g1.y); targetCtx.lineTo(g2.x, g2.y); targetCtx.stroke();
-        }
-
         if (f.name === 'back_high' && cosA < 0.1) {
             const tl1 = proj3D(-halfW * 0.66, midY + 2, -halfL - 1);
             const tl2 = proj3D( halfW * 0.66, midY + 2, -halfL - 1);
@@ -2298,29 +2483,12 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
             targetCtx.beginPath(); targetCtx.arc(tl1.x, tl1.y, 5 * tl1.s, 0, Math.PI * 2); targetCtx.fill();
             targetCtx.beginPath(); targetCtx.arc(tl2.x, tl2.y, 5 * tl2.s, 0, Math.PI * 2); targetCtx.fill();
         }
-        if (f.name === 'back_low' && cosA < 0.1) {
-            const ex1 = proj3D(-halfW * 0.36, groundClear + 3, -halfL - 1);
-            const ex2 = proj3D( halfW * 0.36, groundClear + 3, -halfL - 1);
-            targetCtx.fillStyle = '#94a3b8';
-            targetCtx.beginPath(); targetCtx.arc(ex1.x, ex1.y, 3.2 * ex1.s, 0, Math.PI * 2); targetCtx.fill();
-            targetCtx.beginPath(); targetCtx.arc(ex2.x, ex2.y, 3.2 * ex2.s, 0, Math.PI * 2); targetCtx.fill();
-        }
-
         if (f.name === 'hood' && decalObj && decalObj.style !== 'none') {
             targetCtx.strokeStyle = decalObj.style === 'camo' ? '#ffd166' : 'rgba(255,255,255,0.85)';
             targetCtx.lineWidth = decalObj.style === 'center' ? 8 : 3.5;
-            if (decalObj.style === 'stripes') {
-                const s1a = proj3D(-10, topY + 0.5, -halfL * 0.9);
-                const s1b = proj3D(-10, topY - noseDrop + 0.5, halfL * 0.92);
-                const s2a = proj3D(10, topY + 0.5, -halfL * 0.9);
-                const s2b = proj3D(10, topY - noseDrop + 0.5, halfL * 0.92);
-                targetCtx.beginPath(); targetCtx.moveTo(s1a.x, s1a.y); targetCtx.lineTo(s1b.x, s1b.y);
-                targetCtx.moveTo(s2a.x, s2a.y); targetCtx.lineTo(s2b.x, s2b.y); targetCtx.stroke();
-            } else {
-                const ca = proj3D(0, topY + 0.5, -halfL * 0.9);
-                const cb = proj3D(0, topY - noseDrop + 0.5, halfL * 0.92);
-                targetCtx.beginPath(); targetCtx.moveTo(ca.x, ca.y); targetCtx.lineTo(cb.x, cb.y); targetCtx.stroke();
-            }
+            const ca = proj3D(0, topY + 0.5, -halfL * 0.9);
+            const cb = proj3D(0, topY - noseDrop + 0.5, halfL * 0.92);
+            targetCtx.beginPath(); targetCtx.moveTo(ca.x, ca.y); targetCtx.lineTo(cb.x, cb.y); targetCtx.stroke();
         }
     });
 
@@ -2355,9 +2523,6 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
         cf.pts.slice(1).forEach(pt => targetCtx.lineTo(pt.x, pt.y));
         targetCtx.closePath();
         targetCtx.fill();
-        targetCtx.strokeStyle = 'rgba(147, 197, 253, 0.25)';
-        targetCtx.lineWidth = 1;
-        targetCtx.stroke();
     });
 
     const spStyle = (spoilerObj && spoilerObj.style !== 'none')
@@ -2386,9 +2551,6 @@ function draw360Car(targetCtx, cx, cy, angleRad, pitchVal, carObj, colorHex, rim
         targetCtx.lineTo(w3.x, w3.y); targetCtx.lineTo(w4.x, w4.y);
         targetCtx.closePath();
         targetCtx.fill();
-        targetCtx.strokeStyle = 'rgba(255,255,255,0.22)';
-        targetCtx.lineWidth = 1;
-        targetCtx.stroke();
     }
 
     wheelsProjected.filter(w => w.p.z <= 0).forEach(drawWheel);
@@ -2548,7 +2710,7 @@ const player = {
     wasNitroActive: false,
     wheelAngle: 0
 };
-let trackOffset = 0, roadCurve = 0, time = 0, shakeTime = 0, lastTickMs = 0;
+let trackOffset = 0, roadCurve = 0, time = 0, shakeTime = 0, lastTickMs = 0, hudSyncTimer = 0;
 let patternCounter = 0;
 const sparks = [];
 const keys = {};
@@ -2613,7 +2775,7 @@ const enemies = [
     { x: 0.0,   z: 1900, baseSpeed: 8.2, speed: 8.2, color: '#00f5d4', bodyType: 'drift',  passed: false }
 ];
 
-const rainDrops = Array.from({ length: 75 }, () => ({
+const rainDrops = Array.from({ length: 46 }, () => ({
     x: Math.random() * 800,
     y: Math.random() * 600,
     len: 12 + Math.random() * 14,
@@ -2624,6 +2786,7 @@ function syncAndroidViewportSize() {
     const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
     const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
     const isAndroidOrMobile = /Android/i.test(navigator.userAgent) || vw <= 760;
+    isMobilePerfMode = isAndroidOrMobile;
 
     if (isAndroidOrMobile) {
         gameContainer.style.width = `${Math.round(vw)}px`;
@@ -2644,7 +2807,7 @@ function syncAndroidViewportSize() {
     const rect = gameContainer.getBoundingClientRect();
     const cssW = Math.max(280, Math.round(rect.width || vw));
     const cssH = Math.max(240, Math.round(rect.height || vh));
-    const dpr = isAndroidOrMobile ? Math.min(2, window.devicePixelRatio || 1) : 1;
+    const dpr = isAndroidOrMobile ? Math.min(1.5, window.devicePixelRatio || 1) : 1;
 
     WIDTH = Math.round(cssW * dpr);
     HEIGHT = Math.round(cssH * dpr);
@@ -2727,11 +2890,12 @@ function updateRaceHud() {
     speedEl.style.color = player.nitroActive ? '#38bdf8' : '#f8fafc';
 
     const ev = getSelectedEventObj();
-    const rec = getMapRecord(ev.id);
+    const rec = getMapRecord(ev.id, saveData.gameMode);
+    const shortTag = isTT ? 'C.RELOJ' : 'CARRERA';
     const bestLapShown = (player.sessionBestLapSec !== null && (rec.bestLapSec === null || player.sessionBestLapSec < rec.bestLapSec))
         ? player.sessionBestLapSec
         : rec.bestLapSec;
-    document.getElementById('hudRecord').textContent = `RÉCORD: ${rec.bestScore} PTS · V.MEJOR: ${formatLapSec(bestLapShown)}`;
+    document.getElementById('hudRecord').textContent = `RÉCORD ${shortTag}: ${rec.bestScore} · ${formatLapSec(bestLapShown)}`;
 
     const pct = Math.round(player.nitro);
     const fillEl = document.getElementById('nitroBarFill');
@@ -2757,6 +2921,7 @@ function startGame() {
     player.raceScore = 0;
     player.crashCooldown = 0;
     shakeTime = 0;
+    hudSyncTimer = 0;
     lastTickMs = performance.now();
     player.nitro = 100; player.nitroActive = false; player.wasNitroActive = false; player.wheelAngle = 0;
 
@@ -2780,6 +2945,7 @@ function startGame() {
 function triggerGameOver(reason = 'gameover') {
     audio.updateEngine(0, false, false);
     const ev = getSelectedEventObj();
+    const activeMode = saveData.gameMode;
     const finalScore = Math.floor(player.raceScore);
     const finalLaps = player.completedLaps;
 
@@ -2787,7 +2953,7 @@ function triggerGameOver(reason = 'gameover') {
         saveData.bestScore = finalScore;
     }
 
-    const prevRec = getMapRecord(ev.id);
+    const prevRec = getMapRecord(ev.id, activeMode);
     const newBestScore = Math.max(prevRec.bestScore, finalScore);
     const newBestLaps = Math.max(prevRec.bestLaps, finalLaps);
     let newBestLapSec = prevRec.bestLapSec;
@@ -2795,20 +2961,21 @@ function triggerGameOver(reason = 'gameover') {
         newBestLapSec = (newBestLapSec === null) ? player.sessionBestLapSec : Math.min(newBestLapSec, player.sessionBestLapSec);
     }
 
-    saveData.mapRecords[ev.id] = {
+    setMapRecord(ev.id, activeMode, {
         bestScore: newBestScore,
         bestLaps: newBestLaps,
         bestLapSec: newBestLapSec
-    };
+    });
     persistSave();
 
-    const isTT = saveData.gameMode === 'timetrial';
+    const isTT = activeMode === 'timetrial';
+    const modeLabel = isTT ? 'Contrarreloj' : 'Carrera';
     document.getElementById('goTitle').textContent = isTT && reason === 'timeout' ? '¡TIEMPO AGOTADO!' : '¡SIN VIDAS!';
-    document.getElementById('goEventLabel').textContent = `Modo: ${isTT ? 'Contrarreloj' : 'Carrera'} · Mapa: ${ev.name}`;
+    document.getElementById('goEventLabel').textContent = `Modo: ${modeLabel} · Mapa: ${ev.name}`;
     document.getElementById('goLaps').textContent = finalLaps;
     document.getElementById('goBestLap').textContent = formatLapSec(player.sessionBestLapSec ?? newBestLapSec);
     document.getElementById('goScore').textContent = finalScore;
-    document.getElementById('goMapRecord').textContent = `${newBestScore} PTS · ${newBestLaps} VTS`;
+    document.getElementById('goMapRecord').textContent = `${newBestScore} PTS · ${newBestLaps} VTS (${modeLabel})`;
     document.getElementById('goCoins').textContent = saveData.coins;
     setScreen('GAMEOVER');
 }
@@ -2819,24 +2986,17 @@ function project(x, y, z, horizonY) {
     return { x: (WIDTH / 2) + ((x + curveOffset) * scale), y: horizonY + (y * scale), scale };
 }
 
-function shadeColor(color, percent) {
-    let num = parseInt(color.replace("#", ""), 16),
-        amt = Math.round(2.55 * percent),
-        R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
-    return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
-        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 + (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
-}
-
-function spawnSparks(x, y, count = 14, altColor = '#ffd166') {
-    for (let i = 0; i < count; i++) {
+function spawnSparks(x, y, count = 12, altColor = '#ffd166') {
+    const cap = isMobilePerfMode ? Math.min(8, count) : count;
+    for (let i = 0; i < cap; i++) {
         const angle = Math.random() * Math.PI * 2;
         const spd = 2 + Math.random() * 6;
-        sparks.push({ x, y, vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd - 2, life: 18 + Math.random() * 12, color: i % 2 === 0 ? altColor : '#ff595e' });
+        sparks.push({ x, y, vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd - 2, life: 16 + Math.random() * 10, color: i % 2 === 0 ? altColor : '#ff595e' });
     }
 }
 
 function drawSceneryItem(item, style, horizonY, camHeight) {
-    if (item.z <= 120 || item.z > 2600) return;
+    if (item.z <= 120 || item.z > 2400) return;
     const worldX = (item.offsetX - player.x) * (ROAD_WIDTH * 0.5);
     const p = project(worldX, camHeight, item.z, horizonY);
     const s = p.scale;
@@ -2854,8 +3014,6 @@ function drawSceneryItem(item, style, horizonY, camHeight) {
         } else {
             ctx.fillStyle = style === 'volcano' ? '#6c2d19' : '#2b9348';
             ctx.fillRect(p.x - 8 * s, p.y - 70 * s, 16 * s, 70 * s);
-            ctx.fillRect(p.x - 20 * s, p.y - 52 * s, 12 * s, 10 * s);
-            ctx.fillRect(p.x + 8 * s, p.y - 44 * s, 12 * s, 10 * s);
         }
     } else if (style === 'neon') {
         ctx.fillStyle = '#1e293b'; ctx.fillRect(p.x - 7 * s, p.y - 98 * s, 14 * s, 98 * s);
@@ -2867,36 +3025,21 @@ function drawSceneryItem(item, style, horizonY, camHeight) {
         ctx.fillStyle = '#ffffff';
         ctx.beginPath(); ctx.moveTo(p.x, p.y - 88 * s); ctx.lineTo(p.x - 15 * s, p.y - 54 * s); ctx.lineTo(p.x + 15 * s, p.y - 54 * s); ctx.closePath(); ctx.fill();
     } else if (style === 'dune') {
-        if (item.variant === 'prop') {
-            ctx.fillStyle = '#e2e8f0'; ctx.fillRect(p.x - 5 * s, p.y - 88 * s, 10 * s, 88 * s);
-            ctx.fillStyle = '#00b4d8'; ctx.fillRect(p.x - 8 * s, p.y - 78 * s, 16 * s, 16 * s);
-        } else {
-            ctx.fillStyle = '#6b9080';
-            ctx.beginPath(); ctx.arc(p.x, p.y - 26 * s, 30 * s, 0, Math.PI * 2); ctx.fill();
-        }
+        ctx.fillStyle = '#6b9080';
+        ctx.beginPath(); ctx.arc(p.x, p.y - 26 * s, 30 * s, 0, Math.PI * 2); ctx.fill();
     } else {
-        if (item.variant === 'prop' && style === 'coast') {
-            ctx.fillStyle = '#adb5bd'; ctx.fillRect(p.x - 6 * s, p.y - 95 * s, 12 * s, 95 * s);
-            ctx.fillStyle = '#ff9f1c'; ctx.fillRect(p.x - 8 * s, p.y - 85 * s, 16 * s, 18 * s);
-        } else {
-            ctx.fillStyle = '#5c3a21'; ctx.fillRect(p.x - 10 * s, p.y - 55 * s, 20 * s, 55 * s);
-            ctx.fillStyle = style === 'forest' ? '#1b4332' : '#2d6a4f';
-            ctx.beginPath(); ctx.arc(p.x, p.y - 85 * s, 48 * s, 0, Math.PI * 2); ctx.fill();
-            ctx.fillStyle = style === 'forest' ? '#2d6a4f' : '#40916c';
-            ctx.beginPath(); ctx.arc(p.x - 10 * s, p.y - 92 * s, 32 * s, 0, Math.PI * 2); ctx.fill();
-        }
+        ctx.fillStyle = '#5c3a21'; ctx.fillRect(p.x - 10 * s, p.y - 55 * s, 20 * s, 55 * s);
+        ctx.fillStyle = style === 'forest' ? '#1b4332' : '#2d6a4f';
+        ctx.beginPath(); ctx.arc(p.x, p.y - 85 * s, 48 * s, 0, Math.PI * 2); ctx.fill();
     }
 }
 
 function drawCoin3D(coin, horizonY, camHeight) {
-    if (coin.collected || coin.z <= 120 || coin.z > 2500) return;
+    if (coin.collected || coin.z <= 120 || coin.z > 2400) return;
     const worldX = (coin.x - player.x) * (ROAD_WIDTH * 0.5);
     const p = project(worldX, camHeight, coin.z, horizonY);
     const r = 23 * p.scale;
     const spin = Math.abs(Math.cos(time * 4 + coin.orderIndex * 0.5));
-
-    ctx.fillStyle = 'rgba(0,0,0,0.35)';
-    ctx.beginPath(); ctx.ellipse(p.x, p.y, r * 0.8, r * 0.25, 0, 0, Math.PI * 2); ctx.fill();
 
     ctx.fillStyle = '#ffb703';
     ctx.beginPath(); ctx.ellipse(p.x, p.y - r * 1.1, Math.max(3 * p.scale, r * spin), r, 0, 0, Math.PI * 2); ctx.fill();
@@ -2905,28 +3048,26 @@ function drawCoin3D(coin, horizonY, camHeight) {
 
 function drawWeatherEffects(weather, horizonY, isCockpit) {
     if (weather === 'mist') {
-        const fogGrad = ctx.createLinearGradient(0, horizonY - 35, 0, HEIGHT);
-        fogGrad.addColorStop(0, 'rgba(226, 232, 240, 0.52)');
-        fogGrad.addColorStop(0.45, 'rgba(203, 213, 225, 0.20)');
-        fogGrad.addColorStop(1, 'rgba(203, 213, 225, 0.04)');
-        ctx.fillStyle = fogGrad;
-        ctx.fillRect(0, horizonY - 35, WIDTH, HEIGHT - (horizonY - 35));
+        ctx.fillStyle = 'rgba(203, 213, 225, 0.24)';
+        ctx.fillRect(0, horizonY - 25, WIDTH, Math.round((HEIGHT - horizonY) * 0.65));
     } else if (weather === 'rain') {
-        ctx.fillStyle = 'rgba(15, 23, 42, 0.14)';
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.12)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-        ctx.strokeStyle = 'rgba(186, 230, 253, 0.55)';
-        ctx.lineWidth = 1.4;
+        ctx.strokeStyle = 'rgba(186, 230, 253, 0.52)';
+        ctx.lineWidth = 1.3;
         ctx.beginPath();
-        rainDrops.forEach(drop => {
+        const count = isMobilePerfMode ? 28 : rainDrops.length;
+        for (let i = 0; i < count; i++) {
+            const drop = rainDrops[i];
             ctx.moveTo(drop.x, drop.y);
             ctx.lineTo(drop.x - roadCurve * 3.5, drop.y + drop.len);
-        });
+        }
         ctx.stroke();
 
-        if (isCockpit) {
+        if (isCockpit && !isMobilePerfMode) {
             ctx.fillStyle = 'rgba(224, 242, 254, 0.35)';
-            for (let g = 0; g < 18; g++) {
+            for (let g = 0; g < 12; g++) {
                 const gx = ((g * 97 + Math.floor(time * 40) * 13) % Math.max(120, WIDTH - 120)) + 60;
                 const gy = ((g * 61 + Math.floor(time * 25) * 9) % Math.max(120, HEIGHT - 220)) + 40;
                 ctx.beginPath();
@@ -2989,10 +3130,6 @@ function drawCarOnContext(targetCtx, screenX, screenY, scale, color, isPlayer = 
     if (spStyle !== 'none') {
         targetCtx.fillStyle = spStyle === 'carbon' || spStyle === 'hyper' ? '#0f172a' : '#1e293b';
         targetCtx.fillRect(screenX - w * 0.47, screenY - h - 12 * scale, w * 0.94, 5 * scale);
-        if (spStyle === 'double' || spStyle === 'hyper') {
-            targetCtx.fillStyle = color;
-            targetCtx.fillRect(screenX - w * 0.44, screenY - h - 18 * scale, w * 0.88, 4 * scale);
-        }
         targetCtx.fillStyle = '#94a3b8';
         targetCtx.fillRect(screenX - w * 0.34, screenY - h - 12 * scale, 5 * scale, 12 * scale);
         targetCtx.fillRect(screenX + w * 0.29, screenY - h - 12 * scale, 5 * scale, 12 * scale);
@@ -3052,27 +3189,12 @@ function drawCockpitOverlay(carColor, speedRatio, wheelAngle, carName) {
     ctx.beginPath();
     ctx.roundRect(WIDTH / 2 - 72, 16, 144, 32, 8);
     ctx.fill();
-    ctx.strokeStyle = '#475569';
-    ctx.lineWidth = 2;
-    ctx.stroke();
     ctx.fillStyle = '#38bdf8';
     ctx.font = 'bold 11px monospace';
     ctx.textAlign = 'center';
     ctx.fillText(carName.toUpperCase(), WIDTH / 2, 36);
 
-    ctx.fillStyle = carColor;
-    ctx.beginPath();
-    ctx.moveTo(190, HEIGHT - 135);
-    ctx.lineTo(WIDTH - 190, HEIGHT - 135);
-    ctx.lineTo(WIDTH - 90, HEIGHT - 95);
-    ctx.lineTo(90, HEIGHT - 95);
-    ctx.closePath();
-    ctx.fill();
-
-    const dashGrad = ctx.createLinearGradient(0, HEIGHT - 145, 0, HEIGHT);
-    dashGrad.addColorStop(0, '#1e293b');
-    dashGrad.addColorStop(1, '#090d16');
-    ctx.fillStyle = dashGrad;
+    ctx.fillStyle = '#0f172a';
     ctx.beginPath();
     ctx.moveTo(0, HEIGHT - 125);
     ctx.quadraticCurveTo(WIDTH / 2, HEIGHT - 165, WIDTH, HEIGHT - 125);
@@ -3081,22 +3203,12 @@ function drawCockpitOverlay(carColor, speedRatio, wheelAngle, carName) {
     ctx.closePath();
     ctx.fill();
 
-    ctx.strokeStyle = carColor;
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(20, HEIGHT - 115);
-    ctx.quadraticCurveTo(WIDTH / 2, HEIGHT - 152, WIDTH - 20, HEIGHT - 115);
-    ctx.stroke();
-
     const cx = WIDTH / 2;
     const cy = HEIGHT - 96;
     ctx.fillStyle = '#020617';
     ctx.beginPath();
     ctx.roundRect(cx - 105, cy - 32, 210, 48, 10);
     ctx.fill();
-    ctx.strokeStyle = '#334155';
-    ctx.lineWidth = 2;
-    ctx.stroke();
 
     const bars = 12;
     const activeBars = Math.round(Math.min(1, speedRatio) * bars);
@@ -3116,25 +3228,10 @@ function drawCockpitOverlay(carColor, speedRatio, wheelAngle, carName) {
     ctx.translate(wheelX, wheelY);
     ctx.rotate(wheelAngle);
 
-    ctx.strokeStyle = '#334155';
-    ctx.lineWidth = 18;
-    ctx.beginPath();
-    ctx.moveTo(-radius + 10, 0);
-    ctx.lineTo(radius - 10, 0);
-    ctx.moveTo(0, 0);
-    ctx.lineTo(0, radius - 10);
-    ctx.stroke();
-
     ctx.strokeStyle = '#0f172a';
     ctx.lineWidth = 22;
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, Math.PI * 2);
-    ctx.stroke();
-
-    ctx.strokeStyle = '#475569';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.arc(0, 0, radius + 9, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.fillStyle = carColor;
@@ -3144,9 +3241,6 @@ function drawCockpitOverlay(carColor, speedRatio, wheelAngle, carName) {
     ctx.beginPath();
     ctx.arc(0, 0, 34, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = carColor;
-    ctx.lineWidth = 3;
-    ctx.stroke();
 
     ctx.restore();
     ctx.textAlign = 'left';
@@ -3162,51 +3256,20 @@ function drawGaragePreview() {
     if (badgeEl) badgeEl.textContent = `🔄 360° · ${deg}° · ARRASTRA`;
 
     const gw = garageCanvas.width, gh = garageCanvas.height;
-    gCtx.clearRect(0, 0, gw, gh);
-
-    const bg = gCtx.createRadialGradient(gw / 2, 24, 15, gw / 2, gh * 0.55, Math.max(gw, gh) * 0.65);
-    bg.addColorStop(0, '#1e293b');
-    bg.addColorStop(0.55, '#0f172a');
-    bg.addColorStop(1, '#060911');
-    gCtx.fillStyle = bg;
+    gCtx.fillStyle = '#090d16';
     gCtx.fillRect(0, 0, gw, gh);
-
-    gCtx.fillStyle = 'rgba(226, 232, 240, 0.05)';
-    gCtx.beginPath();
-    gCtx.moveTo(gw / 2 - 22, 0);
-    gCtx.lineTo(gw / 2 + 22, 0);
-    gCtx.lineTo(gw / 2 + 135, gh * 0.75);
-    gCtx.lineTo(gw / 2 - 135, gh * 0.75);
-    gCtx.closePath();
-    gCtx.fill();
 
     const platY = gh * 0.74;
     const platRx = Math.min(158, gw * 0.41);
     const platRy = Math.max(24, platRx * garagePitch * 0.92);
 
-    gCtx.fillStyle = '#0b1120';
+    gCtx.fillStyle = '#0f172a';
     gCtx.beginPath();
     gCtx.ellipse(gw / 2, platY, platRx, platRy, 0, 0, Math.PI * 2);
     gCtx.fill();
     gCtx.strokeStyle = '#38bdf8';
     gCtx.lineWidth = 2.2;
     gCtx.stroke();
-
-    gCtx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
-    gCtx.lineWidth = 1.2;
-    gCtx.beginPath();
-    gCtx.ellipse(gw / 2, platY, platRx * 0.76, platRy * 0.76, 0, 0, Math.PI * 2);
-    gCtx.stroke();
-
-    gCtx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
-    gCtx.lineWidth = 1;
-    for (let i = 0; i < 12; i++) {
-        const a = garageAngleRad + (i * Math.PI / 6);
-        gCtx.beginPath();
-        gCtx.moveTo(gw / 2 + Math.cos(a) * platRx * 0.55, platY + Math.sin(a) * platRy * 0.55);
-        gCtx.lineTo(gw / 2 + Math.cos(a) * platRx * 0.96, platY + Math.sin(a) * platRy * 0.96);
-        gCtx.stroke();
-    }
 
     const car = getSelectedCarObj();
     const col = getSelectedColorObj().hex;
@@ -3222,38 +3285,41 @@ function drawGaragePreview() {
 function update() {
     const nowMs = performance.now();
     const dtSec = Math.min(0.1, (nowMs - (lastTickMs || nowMs)) / 1000);
+    const dtFactor = Math.min(2.2, dtSec * 60);
     lastTickMs = nowMs;
 
-    time += 0.015;
+    time += 0.015 * dtFactor;
     const ev = getSelectedEventObj();
     roadCurve = Math.sin(time * 0.5) * ev.curveAmp;
     const stats = getEffectiveStats();
 
     if (ev.weather === 'rain') {
-        rainDrops.forEach(drop => {
-            drop.y += drop.speedY + player.speed * 0.45;
-            drop.x -= roadCurve * 3.5;
+        const count = isMobilePerfMode ? 28 : rainDrops.length;
+        for (let i = 0; i < count; i++) {
+            const drop = rainDrops[i];
+            drop.y += (drop.speedY + player.speed * 0.45) * dtFactor;
+            drop.x -= roadCurve * 3.5 * dtFactor;
             if (drop.y > HEIGHT) {
                 drop.y = -20;
                 drop.x = Math.random() * WIDTH;
             }
             if (drop.x < 0) drop.x += WIDTH;
             if (drop.x > WIDTH) drop.x -= WIDTH;
-        });
+        }
     }
 
     if (currentScreen !== 'PLAYING') {
         player.x = Math.sin(time * 0.8) * 0.25;
         player.wheelAngle = Math.cos(time * 0.8) * 0.35;
-        trackOffset += 28;
-        scenery.forEach(item => { item.z -= 35; if (item.z < 130) item.z += 24 * 105; });
+        trackOffset += 28 * dtFactor;
+        scenery.forEach(item => { item.z -= 35 * dtFactor; if (item.z < 130) item.z += 24 * 105; });
         audio.updateEngine(0, false, false);
-        drawGaragePreview();
+        if (currentScreen === 'GARAGE') drawGaragePreview();
         return;
     }
 
-    if (player.crashCooldown > 0) player.crashCooldown--;
-    if (shakeTime > 0) shakeTime--;
+    if (player.crashCooldown > 0) player.crashCooldown = Math.max(0, player.crashCooldown - dtFactor);
+    if (shakeTime > 0) shakeTime = Math.max(0, shakeTime - dtFactor);
     player.currentLapSec += dtSec;
 
     if (saveData.gameMode === 'timetrial') {
@@ -3276,19 +3342,19 @@ function update() {
         if (!player.wasNitroActive) {
             recordMissionProgress('nitroUses', 1);
         }
-        player.nitro = Math.max(0, player.nitro - 2.15);
+        player.nitro = Math.max(0, player.nitro - 2.15 * dtFactor);
     } else {
         player.nitroActive = false;
-        player.nitro = Math.min(100, player.nitro + 0.07);
+        player.nitro = Math.min(100, player.nitro + 0.07 * dtFactor);
     }
     player.wasNitroActive = player.nitroActive;
 
     const nitroAccelMult = player.nitroActive ? 1.75 : 1.0;
     const nitroSpeedMult = player.nitroActive ? 1.18 : 1.0;
 
-    if (accelerating) player.speed += stats.accel * nitroAccelMult;
-    else if (brakingInput) player.speed -= stats.accel * 1.8;
-    else player.speed *= 0.96;
+    if (accelerating) player.speed += stats.accel * nitroAccelMult * dtFactor;
+    else if (brakingInput) player.speed -= stats.accel * 1.8 * dtFactor;
+    else player.speed *= Math.pow(0.96, dtFactor);
 
     const offRoad = Math.abs(player.x) > 1.02;
     const rawMax = (offRoad ? stats.maxSpeed * 0.65 : stats.maxSpeed) * nitroSpeedMult;
@@ -3298,19 +3364,19 @@ function update() {
     let targetWheel = 0;
     if (player.speed > 0.2) {
         if (moveLeft) {
-            player.x -= stats.steer;
+            player.x -= stats.steer * dtFactor;
             targetWheel = -0.58;
         }
         if (moveRight) {
-            player.x += stats.steer;
+            player.x += stats.steer * dtFactor;
             targetWheel = 0.58;
         }
-        player.x -= roadCurve * 0.004 * stats.curveGrip * (player.speed / INTERNAL_MAX_SPEED);
+        player.x -= roadCurve * 0.004 * stats.curveGrip * (player.speed / INTERNAL_MAX_SPEED) * dtFactor;
     }
-    player.wheelAngle += (targetWheel - player.wheelAngle) * 0.18;
+    player.wheelAngle += (targetWheel - player.wheelAngle) * Math.min(1, 0.18 * dtFactor);
 
     player.x = Math.max(-1.65, Math.min(1.65, player.x));
-    const forwardDelta = player.speed * 4.2;
+    const forwardDelta = player.speed * 4.2 * dtFactor;
     trackOffset += forwardDelta;
 
     player.lapDistanceAcc += forwardDelta;
@@ -3320,13 +3386,14 @@ function update() {
         if (finishedLapTime > 0.5 && (player.sessionBestLapSec === null || finishedLapTime < player.sessionBestLapSec)) {
             player.sessionBestLapSec = finishedLapTime;
         }
-        const rec = getMapRecord(ev.id);
+        const activeMode = saveData.gameMode;
+        const rec = getMapRecord(ev.id, activeMode);
         if (finishedLapTime > 0.5 && (rec.bestLapSec === null || finishedLapTime < rec.bestLapSec)) {
-            saveData.mapRecords[ev.id] = {
+            setMapRecord(ev.id, activeMode, {
                 bestScore: Math.max(rec.bestScore, Math.floor(player.raceScore)),
                 bestLaps: Math.max(rec.bestLaps, player.completedLaps + 1),
                 bestLapSec: finishedLapTime
-            };
+            });
         }
         player.currentLapSec = 0;
         player.completedLaps += 1;
@@ -3335,15 +3402,15 @@ function update() {
         saveData.coins += ev.coinBonus;
         saveData.stats.totalLaps += 1;
         recordMissionProgress('laps', 1);
-        if (saveData.gameMode === 'timetrial') {
+        if (activeMode === 'timetrial') {
             player.timeLeft = Math.min(45, player.timeLeft + TIME_TRIAL_LAP_BONUS_SEC);
         }
         audio.playLap();
-        spawnSparks(WIDTH / 2, HEIGHT - 90, 18, '#06d6a0');
+        spawnSparks(WIDTH / 2, HEIGHT - 90, 14, '#06d6a0');
         persistSave();
     }
 
-    const scoreGain = player.speed * 0.25 * ev.scoreMult * (player.nitroActive ? 1.25 : 1.0);
+    const scoreGain = player.speed * 0.25 * ev.scoreMult * (player.nitroActive ? 1.25 : 1.0) * dtFactor;
     player.raceScore += scoreGain;
     recordMissionProgress('score', scoreGain);
 
@@ -3377,7 +3444,7 @@ function update() {
     }
 
     enemies.forEach(enemy => {
-        enemy.z -= (player.speed - enemy.speed) * 2.5;
+        enemy.z -= (player.speed - enemy.speed) * 2.5 * dtFactor;
         const dx = Math.abs(enemy.x - player.x);
 
         if (enemy.z > 130 && enemy.z < 260 && dx < 0.24 && player.crashCooldown === 0) {
@@ -3387,7 +3454,7 @@ function update() {
             player.x += (player.x >= enemy.x) ? 0.15 : -0.15;
             enemy.z = 450;
             audio.playCrash();
-            spawnSparks(WIDTH / 2, HEIGHT - 85, 20);
+            spawnSparks(WIDTH / 2, HEIGHT - 85, 16);
 
             if (saveData.gameMode === 'timetrial') {
                 player.timeLeft = Math.max(0, player.timeLeft - 3.5);
@@ -3428,21 +3495,27 @@ function update() {
 
     for (let i = sparks.length - 1; i >= 0; i--) {
         const sp = sparks[i];
-        sp.x += sp.vx; sp.y += sp.vy; sp.vy += 0.25; sp.life--;
+        sp.x += sp.vx * dtFactor; sp.y += sp.vy * dtFactor; sp.vy += 0.25 * dtFactor; sp.life -= dtFactor;
         if (sp.life <= 0) sparks.splice(i, 1);
     }
 
-    updateRaceHud();
+    hudSyncTimer += dtSec;
+    if (hudSyncTimer >= 0.08) {
+        hudSyncTimer = 0;
+        updateRaceHud();
+    }
     audio.updateEngine(player.speed / INTERNAL_MAX_SPEED, true, player.nitroActive);
     audio.tickArcadeMusic(true, player.nitroActive);
 }
 
 function draw() {
+    if (currentScreen === 'GARAGE') return;
+
     ctx.save();
     if (currentScreen === 'PLAYING') {
         if (shakeTime > 0) {
             ctx.translate((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10);
-        } else if (player.nitroActive) {
+        } else if (player.nitroActive && !isMobilePerfMode) {
             ctx.translate((Math.random() - 0.5) * 2.5, (Math.random() - 0.5) * 2.5);
         }
     }
@@ -3465,7 +3538,7 @@ function draw() {
     ctx.arc(WIDTH / 2 + roadCurve * 35, horizonY - 10, 45, 0, Math.PI * 2);
     ctx.fill();
 
-    const stripHeight = 2;
+    const stripHeight = isMobilePerfMode ? 3 : 2;
     for (let y = horizonY + stripHeight; y < HEIGHT; y += stripHeight) {
         const dy = y - horizonY;
         const z = (camHeight * FOV) / dy;
@@ -3500,7 +3573,7 @@ function draw() {
             renderables.push({
                 z: enemy.z,
                 render: () => {
-                    if (enemy.z > 120 && enemy.z < 2500) {
+                    if (enemy.z > 120 && enemy.z < 2400) {
                         const worldX = (enemy.x - player.x) * (ROAD_WIDTH * 0.5);
                         const p = project(worldX, camHeight, enemy.z, horizonY);
                         drawCarOnContext(ctx, p.x, p.y, p.scale, enemy.color, false, enemy.bodyType || 'coupe', false, null);
@@ -3511,7 +3584,9 @@ function draw() {
     }
 
     renderables.sort((a, b) => b.z - a.z);
-    renderables.forEach(obj => obj.render());
+    for (let i = 0; i < renderables.length; i++) {
+        renderables[i].render();
+    }
 
     if (currentScreen === 'PLAYING') {
         drawWeatherEffects(eventObj.weather, horizonY, cam.firstPerson);
@@ -3548,7 +3623,11 @@ function draw() {
         }
     }
 
-    sparks.forEach(sp => { ctx.fillStyle = sp.color; ctx.fillRect(sp.x, sp.y, 5, 5); });
+    for (let i = 0; i < sparks.length; i++) {
+        const spk = sparks[i];
+        ctx.fillStyle = spk.color;
+        ctx.fillRect(spk.x, spk.y, 5, 5);
+    }
     ctx.restore();
 }
 
