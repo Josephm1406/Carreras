@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0b0d12">
     <title>Turbo Horizon 3D</title>
     <style>
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -15,6 +17,7 @@
             align-items: center;
             min-height: 100dvh;
             height: 100dvh;
+            width: 100vw;
             overflow: hidden;
             font-family: system-ui, -apple-system, sans-serif;
             color: #f1faee;
@@ -27,7 +30,6 @@
             height: min(100dvh, 600px);
             max-width: 800px;
             max-height: 600px;
-            aspect-ratio: 4 / 3;
             border: 3px solid #2b303a;
             border-radius: 10px;
             box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
@@ -44,8 +46,8 @@
         /* Monedas arriba a la derecha */
         #coinBadge {
             position: absolute;
-            top: 10px;
-            right: 12px;
+            top: max(10px, env(safe-area-inset-top));
+            right: max(12px, env(safe-area-inset-right));
             background: rgba(15, 23, 42, 0.92);
             border: 2px solid #ffb703;
             color: #ffd166;
@@ -97,8 +99,8 @@
         /* HUD de carrera */
         #raceHud {
             position: absolute;
-            top: 10px;
-            left: 12px;
+            top: max(10px, env(safe-area-inset-top));
+            left: max(12px, env(safe-area-inset-left));
             display: none;
             flex-direction: column;
             gap: 3px;
@@ -146,7 +148,7 @@
             transition: width 0.06s linear;
         }
 
-        /* Controles táctiles para celulares y tablets */
+        /* Controles táctiles para celulares y tablets Android */
         #touchControls {
             position: absolute;
             inset: 0;
@@ -157,21 +159,21 @@
         #touchControls.active { display: block; }
         .touch-cluster {
             position: absolute;
-            bottom: 12px;
+            bottom: max(14px, env(safe-area-inset-bottom));
             display: flex;
             gap: 10px;
             pointer-events: auto;
         }
-        .touch-left-cluster { left: 12px; align-items: center; }
-        .touch-right-cluster { right: 12px; align-items: flex-end; }
+        .touch-left-cluster { left: max(14px, env(safe-area-inset-left)); align-items: center; }
+        .touch-right-cluster { right: max(14px, env(safe-area-inset-right)); align-items: flex-end; }
         .touch-pedal-stack {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
         .touch-btn {
-            width: 56px;
-            height: 56px;
+            width: 58px;
+            height: 58px;
             border-radius: 16px;
             background: rgba(15, 23, 42, 0.72);
             border: 2px solid rgba(148, 163, 184, 0.55);
@@ -190,14 +192,14 @@
             transform: scale(0.95);
         }
         .touch-btn.pedal {
-            width: 54px;
-            height: 44px;
+            width: 56px;
+            height: 46px;
             font-size: 16px;
             border-radius: 13px;
         }
         .touch-btn.nitro-btn {
-            width: 64px;
-            height: 96px;
+            width: 66px;
+            height: 100px;
             font-size: 11px;
             flex-direction: column;
             gap: 2px;
@@ -709,8 +711,8 @@
 
         #btnMenuInGame {
             position: absolute;
-            top: 42px;
-            right: 12px;
+            top: max(10px, env(safe-area-inset-top));
+            right: max(106px, calc(env(safe-area-inset-right) + 94px));
             background: rgba(15,23,42,0.88);
             color: #fff;
             border: 1px solid #475569;
@@ -730,13 +732,12 @@
             padding: 0 8px;
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 760px) {
             #gameContainer {
                 width: 100vw;
                 height: 100dvh;
                 max-width: none;
                 max-height: none;
-                aspect-ratio: auto;
                 border: none;
                 border-radius: 0;
             }
@@ -747,10 +748,10 @@
             .grid-colors { grid-template-columns: repeat(3, 1fr); }
             .garage-layout { grid-template-columns: 1fr; }
             #garagePreviewCanvas { height: 185px; }
-            #btnModeToggle { top: 44px; left: 12px; }
-            #btnMusicToggle { top: 44px; left: 124px; }
-            #btnCameraToggle { top: 74px; left: 12px; }
-            #btnMenuInGame { top: 44px; right: 12px; }
+            #btnModeToggle { top: 46px; left: 12px; }
+            #btnMusicToggle { top: 46px; left: 124px; }
+            #btnCameraToggle { top: 76px; left: 12px; }
+            #btnMenuInGame { top: 46px; right: 12px; }
         }
     </style>
 </head>
@@ -787,7 +788,7 @@
     <button id="btnCameraToggle" class="top-pill-btn" onclick="cycleCameraMode()">📷 CÁMARA: NORMAL</button>
     <button id="btnMenuInGame" onclick="setScreen('HOME')">Menú</button>
 
-    <!-- Controles táctiles para celular / tablet -->
+    <!-- Controles táctiles para celular / tablet Android -->
     <div id="touchControls">
         <div class="touch-cluster touch-left-cluster">
             <button id="touchLeft" class="touch-btn" aria-label="Izquierda">◀</button>
@@ -995,13 +996,14 @@
 <div class="hud-tip">Tope 120 KM/H · Flechas / WASD o Controles Táctiles · Shift/Espacio = Nitro · Tecla C = Cámara · Arrastra en Mi Carro para girar 360°</div>
 
 <script>
+const gameContainer = document.getElementById('gameContainer');
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const garageCanvas = document.getElementById('garagePreviewCanvas');
 const gCtx = garageCanvas.getContext('2d');
 
-const WIDTH = canvas.width;
-const HEIGHT = canvas.height;
+let WIDTH = canvas.width;
+let HEIGHT = canvas.height;
 const FOV = 280;
 const ROAD_WIDTH = 1000;
 const MAX_LIVES = 5;
@@ -1023,17 +1025,23 @@ function formatLapSec(sec) {
     return `${sec.toFixed(2)}s`;
 }
 
-// --- 4 PERSPECTIVAS DE CÁMARA ---
+// --- 4 PERSPECTIVAS DE CÁMARA (ADAPTADAS AL ALTO REAL DEL CANVAS) ---
 const CAMERA_MODES = [
-    { id: 'normal',  label: 'NORMAL',  horizonRatio: 0.42, height: 110, carY: HEIGHT - 35,  carScale: 1.38, firstPerson: false },
-    { id: 'low',     label: 'RASANTE', horizonRatio: 0.48, height: 74,  carY: HEIGHT - 24,  carScale: 1.52, firstPerson: false },
-    { id: 'high',    label: 'AÉREA',   horizonRatio: 0.35, height: 155, carY: HEIGHT - 58,  carScale: 1.24, firstPerson: false },
-    { id: 'cockpit', label: 'CABINA',  horizonRatio: 0.44, height: 86,  carY: HEIGHT,       carScale: 1.0,  firstPerson: true  }
+    { id: 'normal',  label: 'NORMAL',  horizonRatio: 0.42, height: 110, carOffset: 35,  carScale: 1.38, firstPerson: false },
+    { id: 'low',     label: 'RASANTE', horizonRatio: 0.48, height: 74,  carOffset: 24,  carScale: 1.52, firstPerson: false },
+    { id: 'high',    label: 'AÉREA',   horizonRatio: 0.35, height: 155, carOffset: 58,  carScale: 1.24, firstPerson: false },
+    { id: 'cockpit', label: 'CABINA',  horizonRatio: 0.44, height: 86,  carOffset: 0,   carScale: 1.0,  firstPerson: true  }
 ];
 let cameraModeIndex = 0;
 
 function getCameraConfig() {
-    return CAMERA_MODES[cameraModeIndex] || CAMERA_MODES[0];
+    const base = CAMERA_MODES[cameraModeIndex] || CAMERA_MODES[0];
+    const scaleFactor = Math.max(0.72, Math.min(1.25, HEIGHT / 600));
+    return {
+        ...base,
+        carY: base.firstPerson ? HEIGHT : Math.max(120, HEIGHT - base.carOffset * scaleFactor),
+        carScale: base.carScale * scaleFactor
+    };
 }
 
 function cycleCameraMode() {
@@ -1563,6 +1571,7 @@ function setScreen(screen) {
     if (screen === 'SHOP') renderShop();
     if (screen === 'GARAGE') renderGarage();
     updateTopUI();
+    syncAndroidViewportSize();
 }
 
 function renderEvents() {
@@ -2520,11 +2529,60 @@ const enemies = [
 ];
 
 const rainDrops = Array.from({ length: 75 }, () => ({
-    x: Math.random() * WIDTH,
-    y: Math.random() * HEIGHT,
+    x: Math.random() * 800,
+    y: Math.random() * 600,
     len: 12 + Math.random() * 14,
     speedY: 13 + Math.random() * 8
 }));
+
+function syncAndroidViewportSize() {
+    const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    const isAndroidOrMobile = /Android/i.test(navigator.userAgent) || vw <= 760;
+
+    if (isAndroidOrMobile) {
+        gameContainer.style.width = `${Math.round(vw)}px`;
+        gameContainer.style.height = `${Math.round(vh)}px`;
+        gameContainer.style.maxWidth = 'none';
+        gameContainer.style.maxHeight = 'none';
+        gameContainer.style.border = 'none';
+        gameContainer.style.borderRadius = '0';
+    } else {
+        gameContainer.style.width = '';
+        gameContainer.style.height = '';
+        gameContainer.style.maxWidth = '';
+        gameContainer.style.maxHeight = '';
+        gameContainer.style.border = '';
+        gameContainer.style.borderRadius = '';
+    }
+
+    const rect = gameContainer.getBoundingClientRect();
+    const cssW = Math.max(280, Math.round(rect.width || vw));
+    const cssH = Math.max(240, Math.round(rect.height || vh));
+    const dpr = isAndroidOrMobile ? Math.min(2, window.devicePixelRatio || 1) : 1;
+
+    WIDTH = Math.round(cssW * dpr);
+    HEIGHT = Math.round(cssH * dpr);
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+
+    const gRect = garageCanvas.getBoundingClientRect();
+    const gW = Math.max(240, Math.round((gRect.width || 360) * dpr));
+    const gH = Math.max(150, Math.round((gRect.height || 200) * dpr));
+    garageCanvas.width = gW;
+    garageCanvas.height = gH;
+
+    rainDrops.forEach(drop => {
+        if (drop.x > WIDTH) drop.x = Math.random() * WIDTH;
+        if (drop.y > HEIGHT) drop.y = Math.random() * HEIGHT;
+    });
+}
+
+window.addEventListener('resize', syncAndroidViewportSize);
+window.addEventListener('orientationchange', () => setTimeout(syncAndroidViewportSize, 120));
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncAndroidViewportSize);
+}
 
 const trackCoins = [];
 function buildOrderedCoinBatch(startZ, patternIndex) {
@@ -2784,8 +2842,8 @@ function drawWeatherEffects(weather, horizonY, isCockpit) {
         if (isCockpit) {
             ctx.fillStyle = 'rgba(224, 242, 254, 0.35)';
             for (let g = 0; g < 18; g++) {
-                const gx = ((g * 97 + Math.floor(time * 40) * 13) % (WIDTH - 120)) + 60;
-                const gy = ((g * 61 + Math.floor(time * 25) * 9) % (HEIGHT - 220)) + 40;
+                const gx = ((g * 97 + Math.floor(time * 40) * 13) % Math.max(120, WIDTH - 120)) + 60;
+                const gy = ((g * 61 + Math.floor(time * 25) * 9) % Math.max(120, HEIGHT - 220)) + 40;
                 ctx.beginPath();
                 ctx.arc(gx, gy, 3.2, 0, Math.PI * 2);
                 ctx.fill();
@@ -3021,7 +3079,7 @@ function drawGaragePreview() {
     const gw = garageCanvas.width, gh = garageCanvas.height;
     gCtx.clearRect(0, 0, gw, gh);
 
-    const bg = gCtx.createRadialGradient(gw / 2, 24, 15, gw / 2, gh * 0.55, 220);
+    const bg = gCtx.createRadialGradient(gw / 2, 24, 15, gw / 2, gh * 0.55, Math.max(gw, gh) * 0.65);
     bg.addColorStop(0, '#1e293b');
     bg.addColorStop(0.55, '#0f172a');
     bg.addColorStop(1, '#060911');
@@ -3038,7 +3096,7 @@ function drawGaragePreview() {
     gCtx.fill();
 
     const platY = gh * 0.74;
-    const platRx = 158;
+    const platRx = Math.min(158, gw * 0.41);
     const platRy = Math.max(24, platRx * garagePitch * 0.92);
 
     gCtx.fillStyle = '#0b1120';
@@ -3383,7 +3441,7 @@ function draw() {
     const moveLeft = keys['ArrowLeft'] || keys['a'] || touchState.left;
     const moveRight = keys['ArrowRight'] || keys['d'] || touchState.right;
     const steerTilt = (currentScreen === 'PLAYING') ? (moveLeft ? -8 : moveRight ? 8 : 0) : 0;
-    const carY = (currentScreen === 'HOME') ? HEIGHT - 115 : cam.carY;
+    const carY = (currentScreen === 'HOME') ? HEIGHT - Math.min(145, HEIGHT * 0.22) : cam.carY;
     const blinkSkip = player.crashCooldown > 0 && Math.floor(player.crashCooldown / 3) % 2 === 0;
     const braking = currentScreen === 'PLAYING' && (keys['ArrowDown'] || keys['s'] || touchState.down);
     const turboActive = currentScreen === 'PLAYING' && (keys['ArrowUp'] || keys['w'] || touchState.up) && player.speed > 3;
@@ -3415,6 +3473,7 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
+syncAndroidViewportSize();
 updateTopUI();
 gameLoop();
 </script>
