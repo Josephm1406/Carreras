@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#0b0d12">
     <title>Turbo Horizon 3D</title>
     <style>
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             margin: 0;
             background: #0b0d12;
@@ -404,7 +404,6 @@
             color: #cbd5e1;
         }
 
-        /* Resumen y Filtros de Récords / Eventos */
         .records-summary-box {
             background: #1e293b;
             border: 1.5px solid #38bdf8;
@@ -1050,73 +1049,73 @@ const RACE_EVENTS = [
         id: 'coast', name: 'Ruta Costera', mapTag: 'Lluvia / Césped', weather: 'rain',
         desc: 'Atardecer lluvioso junto al mar con césped verde y curvas fluidas.',
         curveAmp: 1.15, enemySpeedMult: 0.95, coinBonus: 10, scoreMult: 1.0,
-        theme: { skyTop: '#0f2027', skyMid: '#203a43', skyBot: '#64748b', sunColor: '#cbd5e1', groundA: '#236b38', groundB: '#1b572c', roadA: '#2b3036', roadB: '#22262b', rumbleA: '#e63946', rumbleB: '#f1faee', sceneryStyle: 'coast' }
+        theme: { skyTop: '#0f2027', skyMid: '#203a43', skyBot: '#64748b', sunColor: '#cbd5e1', groundA: '#236b38', groundB: '#1b572c', roadA: '#23272e', roadB: '#1b1f25', rumbleA: '#dc2626', rumbleB: '#f1f5f9', sceneryStyle: 'coast', chevronColor: '#2dd4bf' }
     },
     {
         id: 'ventanilla', name: 'Curvas de Ventanilla', mapTag: 'Niebla Marina / Arena', weather: 'mist',
         desc: 'Litoral del Callao con neblina marina, arena costera y curvas técnicas.',
         curveAmp: 1.85, enemySpeedMult: 1.10, coinBonus: 14, scoreMult: 1.35,
-        theme: { skyTop: '#1d3557', skyMid: '#457b9d', skyBot: '#a8dadc', sunColor: '#ffe8a3', groundA: '#d4a373', groundB: '#c38e5d', roadA: '#3a3d42', roadB: '#2f3237', rumbleA: '#00b4d8', rumbleB: '#f8fafc', sceneryStyle: 'dune' }
+        theme: { skyTop: '#1d3557', skyMid: '#457b9d', skyBot: '#a8dadc', sunColor: '#ffe8a3', groundA: '#d4a373', groundB: '#c38e5d', roadA: '#32363c', roadB: '#272a30', rumbleA: '#0284c7', rumbleB: '#f8fafc', sceneryStyle: 'dune', chevronColor: '#38bdf8' }
     },
     {
         id: 'desert', name: 'Cañón Desértico', mapTag: 'Sol Intenso / Terracota', weather: 'clear',
         desc: 'Calor extremo, terreno terracota y formaciones rocosas en el horizonte.',
         curveAmp: 1.55, enemySpeedMult: 1.15, coinBonus: 16, scoreMult: 1.5,
-        theme: { skyTop: '#7f2f00', skyMid: '#d6681e', skyBot: '#ffbe55', sunColor: '#fff3b0', groundA: '#c85a17', groundB: '#ad490c', roadA: '#3d312a', roadB: '#302620', rumbleA: '#ffb703', rumbleB: '#1e1b18', sceneryStyle: 'desert' }
+        theme: { skyTop: '#7f2f00', skyMid: '#d6681e', skyBot: '#ffbe55', sunColor: '#fff3b0', groundA: '#c85a17', groundB: '#ad490c', roadA: '#342a25', roadB: '#28201c', rumbleA: '#eab308', rumbleB: '#1e1b18', sceneryStyle: 'desert', chevronColor: '#ff70a6' }
     },
     {
         id: 'neon_night', name: 'Noche de Neón', mapTag: 'Medianoche / Neón', weather: 'clear',
         desc: 'Circuito nocturno bajo las estrellas con asfalto oscuro y balizas brillantes.',
         curveAmp: 1.70, enemySpeedMult: 1.20, coinBonus: 18, scoreMult: 1.75,
-        theme: { skyTop: '#050816', skyMid: '#131b3a', skyBot: '#3b0764', sunColor: '#e2e8f0', groundA: '#0f172a', groundB: '#090e1a', roadA: '#1e293b', roadB: '#162032', rumbleA: '#00f5d4', rumbleB: '#f72585', sceneryStyle: 'neon' }
+        theme: { skyTop: '#050816', skyMid: '#131b3a', skyBot: '#3b0764', sunColor: '#e2e8f0', groundA: '#0f172a', groundB: '#090e1a', roadA: '#182030', roadB: '#111724', rumbleA: '#00f5d4', rumbleB: '#f72585', sceneryStyle: 'neon', chevronColor: '#ff4ecd' }
     },
     {
         id: 'mist_forest', name: 'Bosque de Neblina', mapTag: 'Niebla / Esmeralda', weather: 'mist',
         desc: 'Sendero boscoso envuelto en neblina densa y árboles altos a ambos lados.',
         curveAmp: 1.45, enemySpeedMult: 1.05, coinBonus: 15, scoreMult: 1.4,
-        theme: { skyTop: '#132a13', skyMid: '#31572c', skyBot: '#90a955', sunColor: '#ecf39e', groundA: '#1f512b', groundB: '#173f21', roadA: '#2f3632', roadB: '#252b28', rumbleA: '#90a955', rumbleB: '#f1faee', sceneryStyle: 'forest' }
+        theme: { skyTop: '#132a13', skyMid: '#31572c', skyBot: '#90a955', sunColor: '#ecf39e', groundA: '#1f512b', groundB: '#173f21', roadA: '#282e2b', roadB: '#1f2422', rumbleA: '#84cc16', rumbleB: '#f1f5f9', sceneryStyle: 'forest', chevronColor: '#5eead4' }
     },
     {
         id: 'volcano', name: 'Volcán Andino', mapTag: 'Ceniza / Magma', weather: 'clear',
         desc: 'Laderas volcánicas de alta montaña con cielo carmesí y roca oscura.',
         curveAmp: 2.00, enemySpeedMult: 1.24, coinBonus: 22, scoreMult: 1.95,
-        theme: { skyTop: '#2b0606', skyMid: '#781414', skyBot: '#ff5400', sunColor: '#ffbd00', groundA: '#3b2323', groundB: '#291616', roadA: '#231f20', roadB: '#171415', rumbleA: '#ff5400', rumbleB: '#f8fafc', sceneryStyle: 'volcano' }
+        theme: { skyTop: '#2b0606', skyMid: '#781414', skyBot: '#ff5400', sunColor: '#ffbd00', groundA: '#3b2323', groundB: '#291616', roadA: '#1e1b1d', roadB: '#141214', rumbleA: '#ea580c', rumbleB: '#f8fafc', sceneryStyle: 'volcano', chevronColor: '#ff5400' }
     },
     {
         id: 'polar', name: 'Circuito Polar', mapTag: 'Ventisca / Niebla', weather: 'mist',
         desc: 'Horizonte helado con bruma blanca, nieve brillante y curvas rápidas.',
         curveAmp: 1.65, enemySpeedMult: 1.18, coinBonus: 20, scoreMult: 1.8,
-        theme: { skyTop: '#0b2545', skyMid: '#134074', skyBot: '#caf0f8', sunColor: '#ffffff', groundA: '#dceefb', groundB: '#c3e0f7', roadA: '#334155', roadB: '#263244', rumbleA: '#0096c7', rumbleB: '#ffffff', sceneryStyle: 'polar' }
+        theme: { skyTop: '#0b2545', skyMid: '#134074', skyBot: '#caf0f8', sunColor: '#ffffff', groundA: '#dceefb', groundB: '#c3e0f7', roadA: '#2b3646', roadB: '#202936', rumbleA: '#0284c7', rumbleB: '#ffffff', sceneryStyle: 'polar', chevronColor: '#38bdf8' }
     },
     {
         id: 'apex_blitz', name: 'Desafío Relámpago', mapTag: 'Lluvia / Tormenta', weather: 'rain',
         desc: 'Tormenta lluviosa, rivales veloces y multiplicador alto de puntaje y monedas.',
         curveAmp: 2.25, enemySpeedMult: 1.32, coinBonus: 25, scoreMult: 2.2,
-        theme: { skyTop: '#14051c', skyMid: '#3b0764', skyBot: '#9d174d', sunColor: '#fbcfe8', groundA: '#231433', groundB: '#180d24', roadA: '#1e1b24', roadB: '#141218', rumbleA: '#ffbe0b', rumbleB: '#ff006e', sceneryStyle: 'neon' }
+        theme: { skyTop: '#14051c', skyMid: '#3b0764', skyBot: '#9d174d', sunColor: '#fbcfe8', groundA: '#231433', groundB: '#180d24', roadA: '#191620', roadB: '#110f17', rumbleA: '#f59e0b', rumbleB: '#ec4899', sceneryStyle: 'neon', chevronColor: '#ff4ecd' }
     },
     {
         id: 'tokyo_rain', name: 'Autopista de Tokio', mapTag: 'Lluvia / Metrópoli', weather: 'rain',
         desc: 'Vía elevada nocturna bajo lluvia intensa con luces de neón y tráfico veloz.',
         curveAmp: 1.95, enemySpeedMult: 1.28, coinBonus: 24, scoreMult: 2.1,
-        theme: { skyTop: '#020617', skyMid: '#0f172a', skyBot: '#1d4ed8', sunColor: '#93c5fd', groundA: '#090d16', groundB: '#050811', roadA: '#1e293b', roadB: '#0f172a', rumbleA: '#38bdf8', rumbleB: '#f43f5e', sceneryStyle: 'neon' }
+        theme: { skyTop: '#020617', skyMid: '#0f172a', skyBot: '#1d4ed8', sunColor: '#93c5fd', groundA: '#090d16', groundB: '#050811', roadA: '#182032', roadB: '#101624', rumbleA: '#38bdf8', rumbleB: '#f43f5e', sceneryStyle: 'neon', chevronColor: '#2dd4bf' }
     },
     {
         id: 'colca_canyon', name: 'Cañón del Colca', mapTag: 'Sol Andino / Tierra', weather: 'clear',
         desc: 'Desfiladero andino de curvas cerradas, roca dorada y alta recompensa.',
         curveAmp: 2.10, enemySpeedMult: 1.22, coinBonus: 23, scoreMult: 2.0,
-        theme: { skyTop: '#1e3a8a', skyMid: '#3b82f6', skyBot: '#fde68a', sunColor: '#fef08a', groundA: '#92400e', groundB: '#78350f', roadA: '#374151', roadB: '#1f2937', rumbleA: '#f59e0b', rumbleB: '#f8fafc', sceneryStyle: 'desert' }
+        theme: { skyTop: '#1e3a8a', skyMid: '#3b82f6', skyBot: '#fde68a', sunColor: '#fef08a', groundA: '#92400e', groundB: '#78350f', roadA: '#2e3540', roadB: '#222730', rumbleA: '#d97706', rumbleB: '#f8fafc', sceneryStyle: 'desert', chevronColor: '#ff70a6' }
     },
     {
         id: 'costa_verde', name: 'Costa Verde Nocturna', mapTag: 'Niebla / Acantilado', weather: 'mist',
         desc: 'Recorrido nocturno frente al océano Pacífico con bruma y faros costeros.',
         curveAmp: 1.75, enemySpeedMult: 1.16, coinBonus: 19, scoreMult: 1.85,
-        theme: { skyTop: '#042f2e', skyMid: '#115e59', skyBot: '#5eead4', sunColor: '#ccfbf1', groundA: '#134e4a', groundB: '#0f3f3c', roadA: '#1e293b', roadB: '#162032', rumbleA: '#2dd4bf', rumbleB: '#f8fafc', sceneryStyle: 'coast' }
+        theme: { skyTop: '#042f2e', skyMid: '#115e59', skyBot: '#5eead4', sunColor: '#ccfbf1', groundA: '#134e4a', groundB: '#0f3f3c', roadA: '#1a2330', roadB: '#121822', rumbleA: '#14b8a6', rumbleB: '#f8fafc', sceneryStyle: 'coast', chevronColor: '#2dd4bf' }
     },
     {
         id: 'grand_apex', name: 'Gran Premio Apex', mapTag: 'Tormenta Final / Oro', weather: 'rain',
         desc: 'La prueba definitiva: tormenta eléctrica, curvas extremas y premio máximo.',
         curveAmp: 2.45, enemySpeedMult: 1.38, coinBonus: 32, scoreMult: 2.6,
-        theme: { skyTop: '#18181b', skyMid: '#713f12', skyBot: '#eab308', sunColor: '#fef08a', groundA: '#27272a', groundB: '#18181b', roadA: '#09090b', roadB: '#18181b', rumbleA: '#eab308', rumbleB: '#ef4444', sceneryStyle: 'volcano' }
+        theme: { skyTop: '#18181b', skyMid: '#713f12', skyBot: '#eab308', sunColor: '#fef08a', groundA: '#27272a', groundB: '#18181b', roadA: '#141418', roadB: '#0c0c0f', rumbleA: '#eab308', rumbleB: '#ef4444', sceneryStyle: 'volcano', chevronColor: '#ff4ecd' }
     }
 ];
 
@@ -1339,9 +1338,7 @@ function setMapRecord(eventId, mode, newData) {
 function persistSave() {
     try {
         localStorage.setItem('turbo3d_save_v17', JSON.stringify(saveData));
-    } catch (_) {
-        // Ignora fallo de cuota en dispositivos con almacenamiento restringido
-    }
+    } catch (_) {}
     updateTopUI();
 }
 
@@ -2563,6 +2560,15 @@ const rainDrops = Array.from({ length: 24 }, () => ({
     speedY: 14 + Math.random() * 7
 }));
 
+const SKYLINE_BUILDINGS = Array.from({ length: 22 }, (_, i) => ({
+    xNorm: i / 21,
+    w: 36 + ((i * 23) % 42),
+    h: 52 + ((i * 37) % 85),
+    shade: i % 3 === 0 ? '#0b1528' : (i % 3 === 1 ? '#101d34' : '#08101f'),
+    light: i % 2 === 0 ? 'rgba(125, 211, 252, 0.45)' : 'rgba(253, 224, 71, 0.35)',
+    seed: i * 11 + 5
+}));
+
 function syncAndroidViewportSize() {
     const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
     const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
@@ -2775,6 +2781,161 @@ function spawnSparks(x, y, count = 8, altColor = '#ffd166') {
     }
 }
 
+function drawSkylineBackdrop(horizonY, style) {
+    if (!['neon', 'coast', 'volcano'].includes(style) && style !== 'city') return;
+    const shiftX = -roadCurve * 36;
+    for (let i = 0; i < SKYLINE_BUILDINGS.length; i++) {
+        const b = SKYLINE_BUILDINGS[i];
+        const bx = b.xNorm * WIDTH + shiftX - b.w * 0.5;
+        if (bx + b.w < -40 || bx > WIDTH + 40) continue;
+        const by = horizonY - b.h;
+        ctx.fillStyle = b.shade;
+        ctx.fillRect(bx, by, b.w, b.h);
+
+        if (!lowEndLiteMode) {
+            ctx.fillStyle = b.light;
+            for (let wy = by + 7; wy < horizonY - 8; wy += 10) {
+                for (let wx = bx + 6; wx < bx + b.w - 8; wx += 9) {
+                    if (((wx + wy + b.seed) | 0) % 3 === 0) {
+                        ctx.fillRect(wx, wy, 4, 4);
+                    }
+                }
+            }
+        }
+    }
+}
+
+function drawTrackChevrons(horizonY, camHeight, colorHex) {
+    if (Math.abs(roadCurve) < 0.22 || lowEndLiteMode) return;
+    const dir = roadCurve > 0 ? 1 : -1;
+    const stepZ = 190;
+    const scroll = (trackOffset * 0.5) % stepZ;
+
+    for (let i = 0; i < 6; i++) {
+        const z = 450 + i * stepZ - scroll;
+        if (z < 260 || z > 1750) continue;
+        const worldX = dir * (ROAD_WIDTH * 0.55);
+        const p = project(worldX, camHeight * 0.55, z, horizonY);
+        const w = 18 * p.scale;
+        const h = 28 * p.scale;
+
+        ctx.strokeStyle = colorHex;
+        ctx.lineWidth = Math.max(1.5, 2.8 * p.scale);
+        ctx.beginPath();
+        if (dir > 0) {
+            ctx.moveTo(p.x - w * 0.45, p.y - h * 0.5);
+            ctx.lineTo(p.x + w * 0.45, p.y);
+            ctx.lineTo(p.x - w * 0.45, p.y + h * 0.5);
+        } else {
+            ctx.moveTo(p.x + w * 0.45, p.y - h * 0.5);
+            ctx.lineTo(p.x - w * 0.45, p.y);
+            ctx.lineTo(p.x + w * 0.45, p.y + h * 0.5);
+        }
+        ctx.stroke();
+    }
+}
+
+// --- PISTA REALISTA EN PSEUDO-3D (ASFALTO, HUELLAS, BORDILLOS, BARRERAS Y REFLEJOS) ---
+function drawRealisticRoad(horizonY, camHeight, eventObj) {
+    const theme = eventObj.theme;
+    const isWetOrNight = eventObj.weather === 'rain' || theme.sceneryStyle === 'neon';
+    const stripHeight = lowEndLiteMode ? 5 : (isMobilePerfMode ? 3 : 2);
+    const totalDepth = Math.max(1, HEIGHT - horizonY);
+
+    for (let y = horizonY + stripHeight; y < HEIGHT; y += stripHeight) {
+        const dy = y - horizonY;
+        const depthNorm = dy / totalDepth; // 0 en horizonte -> 1 cerca del auto
+        const z = (camHeight * FOV) / dy;
+        const scale = FOV / z;
+
+        const curveShift = roadCurve * Math.pow(z / 100, 1.8) * scale;
+        const roadCenter = (WIDTH / 2) + curveShift - (player.x * (ROAD_WIDTH * 0.5) * scale);
+        const halfRoad = (ROAD_WIDTH * 0.5) * scale;
+        const shoulderWidth = halfRoad * 0.085;
+        const rumbleWidth = halfRoad * 0.135;
+
+        const segIndex = Math.floor((z + trackOffset) / 90);
+        const stripe = segIndex % 2 === 0;
+        const dashPhase = ((z + trackOffset * 1.15) % 240) < 115;
+
+        // Terreno lateral
+        ctx.fillStyle = stripe ? theme.groundA : theme.groundB;
+        ctx.fillRect(0, y, WIDTH, stripHeight);
+
+        // Arcén / berma exterior al asfalto
+        const outerEdgeL = roadCenter - halfRoad - rumbleWidth - shoulderWidth;
+        const outerEdgeR = roadCenter + halfRoad + rumbleWidth + shoulderWidth;
+        ctx.fillStyle = stripe ? shadeColor(theme.roadB, -10) : shadeColor(theme.roadA, -12);
+        ctx.fillRect(outerEdgeL, y, Math.max(1, outerEdgeR - outerEdgeL), stripHeight);
+
+        // Bordillos / pianos en bordes de curva
+        ctx.fillStyle = stripe ? theme.rumbleA : theme.rumbleB;
+        ctx.fillRect(roadCenter - halfRoad - rumbleWidth, y, Math.max(1, rumbleWidth), stripHeight);
+        ctx.fillRect(roadCenter + halfRoad, y, Math.max(1, rumbleWidth), stripHeight);
+
+        // Superficie principal de asfalto con sutil variación de capa
+        ctx.fillStyle = stripe ? theme.roadA : theme.roadB;
+        ctx.fillRect(roadCenter - halfRoad, y, Math.max(1, halfRoad * 2), stripHeight);
+
+        // Huellas oscuras de rodadura en los carriles reales
+        if (depthNorm > 0.08) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.20)';
+            const trackW = Math.max(1, halfRoad * 0.09);
+            const laneCenters = [-0.62, -0.28, 0.28, 0.62];
+            for (let c = 0; c < laneCenters.length; c++) {
+                const tx = roadCenter + halfRoad * laneCenters[c] - trackW * 0.5;
+                ctx.fillRect(tx, y, trackW, stripHeight);
+            }
+        }
+
+        // Líneas laterales continuas de delimitación de calzada
+        const edgeLineW = Math.max(1, 5 * scale);
+        ctx.fillStyle = 'rgba(241, 245, 249, 0.72)';
+        ctx.fillRect(roadCenter - halfRoad + 1 * scale, y, edgeLineW, stripHeight);
+        ctx.fillRect(roadCenter + halfRoad - edgeLineW - 1 * scale, y, edgeLineW, stripHeight);
+
+        // Líneas punteadas divisorias de carriles
+        if (dashPhase) {
+            ctx.fillStyle = theme.sceneryStyle === 'neon' ? 'rgba(56, 189, 248, 0.78)' : 'rgba(248, 250, 252, 0.82)';
+            const lineW = Math.max(1, 9 * scale);
+            const dividerPos = [-0.33, 0.33];
+            for (let d = 0; d < dividerPos.length; d++) {
+                ctx.fillRect(roadCenter + halfRoad * dividerPos[d] - lineW * 0.5, y, lineW, stripHeight);
+            }
+        }
+
+        // Reflejos sobre asfalto húmedo o nocturno
+        if (isWetOrNight && !lowEndLiteMode && depthNorm > 0.14 && stripe) {
+            const reflW = Math.max(2, 18 * scale);
+            ctx.fillStyle = theme.sceneryStyle === 'neon'
+                ? 'rgba(244, 114, 182, 0.13)'
+                : 'rgba(186, 230, 253, 0.11)';
+            ctx.fillRect(roadCenter - halfRoad * 0.55 - reflW * 0.5, y, reflW, stripHeight);
+            ctx.fillRect(roadCenter + halfRoad * 0.55 - reflW * 0.5, y, reflW, stripHeight);
+        }
+
+        // Postes / barreras de seguridad en los laterales
+        if (!lowEndLiteMode && (segIndex % 3 === 0) && depthNorm > 0.06) {
+            const postW = Math.max(1.5, 6 * scale);
+            const postH = Math.max(2, 18 * scale);
+            const guardL = roadCenter - halfRoad - rumbleWidth - shoulderWidth * 0.6;
+            const guardR = roadCenter + halfRoad + rumbleWidth + shoulderWidth * 0.6;
+            ctx.fillStyle = '#cbd5e1';
+            ctx.fillRect(guardL - postW * 0.5, y - postH, postW, postH);
+            ctx.fillRect(guardR - postW * 0.5, y - postH, postW, postH);
+        }
+
+        // Difuminado atmosférico suave cerca del horizonte
+        if (depthNorm < 0.16) {
+            const fogAlpha = (1 - depthNorm / 0.16) * (eventObj.weather === 'mist' ? 0.55 : 0.25);
+            ctx.fillStyle = eventObj.weather === 'mist'
+                ? `rgba(203, 213, 225, ${fogAlpha.toFixed(2)})`
+                : `rgba(15, 23, 42, ${(fogAlpha * 0.6).toFixed(2)})`;
+            ctx.fillRect(roadCenter - halfRoad - rumbleWidth, y, (halfRoad + rumbleWidth) * 2, stripHeight);
+        }
+    }
+}
+
 function drawSceneryItem(item, style, horizonY, camHeight) {
     if (item.z <= 120 || item.z > 2400) return;
     const worldX = (item.offsetX - player.x) * (ROAD_WIDTH * 0.5);
@@ -2840,6 +3001,88 @@ function drawWeatherEffects(weather, horizonY) {
     }
 }
 
+function drawSpeedAndBoostTrails(screenX, screenY, scale, nitroBoosting) {
+    if (lowEndLiteMode) return;
+    const spdRatio = player.speed / INTERNAL_MAX_SPEED;
+    if (spdRatio < 0.55 && !nitroBoosting) return;
+
+    ctx.save();
+    const trailColor = nitroBoosting ? 'rgba(0, 245, 212, 0.45)' : 'rgba(56, 189, 248, 0.24)';
+    ctx.fillStyle = trailColor;
+    const tLen = (nitroBoosting ? 65 : 35) * scale;
+    ctx.fillRect(screenX - 44 * scale, screenY - 12 * scale, 10 * scale, tLen);
+    ctx.fillRect(screenX + 34 * scale, screenY - 12 * scale, 10 * scale, tLen);
+
+    ctx.strokeStyle = nitroBoosting ? 'rgba(125, 211, 252, 0.35)' : 'rgba(226, 232, 240, 0.14)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+        const yOff = HEIGHT * (0.48 + i * 0.085);
+        const side = i % 2 === 0 ? -1 : 1;
+        const xStart = side < 0 ? 12 : WIDTH - 12;
+        const xEnd = side < 0 ? WIDTH * 0.22 : WIDTH * 0.78;
+        ctx.moveTo(xStart, yOff);
+        ctx.lineTo(xEnd, yOff + 14);
+    }
+    ctx.stroke();
+    ctx.restore();
+}
+
+function drawArcadeClusterHud(kmh) {
+    if (currentScreen !== 'PLAYING' || lowEndLiteMode) return;
+    const margin = Math.max(44, Math.min(64, WIDTH * 0.075));
+    const r = Math.min(36, WIDTH * 0.048);
+    if (r < 24) return;
+
+    ctx.save();
+    const mapX = margin;
+    const mapY = HEIGHT - margin;
+    ctx.fillStyle = 'rgba(10, 18, 32, 0.68)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(mapX, mapY, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(mapX, mapY + r * 0.68);
+    ctx.quadraticCurveTo(mapX + roadCurve * 12, mapY, mapX + roadCurve * 20, mapY - r * 0.68);
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffd166';
+    ctx.beginPath();
+    ctx.arc(mapX + player.x * 10, mapY + r * 0.25, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    const dialX = WIDTH - margin;
+    const dialY = HEIGHT - margin;
+    ctx.fillStyle = 'rgba(10, 18, 32, 0.72)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(dialX, dialY, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    const ratio = Math.min(1, kmh / MAX_SPEED_KMH);
+    const startA = Math.PI * 0.8;
+    const endA = startA + Math.PI * 1.4 * ratio;
+    ctx.strokeStyle = player.nitroActive ? '#00f5d4' : '#38bdf8';
+    ctx.lineWidth = 3.5;
+    ctx.beginPath();
+    ctx.arc(dialX, dialY, r - 5, startA, endA);
+    ctx.stroke();
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 11px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${kmh}`, dialX, dialY + 4);
+    ctx.restore();
+}
+
 function drawCarOnContext(targetCtx, screenX, screenY, scale, color, isPlayer = false, bodyType = 'coupe', showBrake = false, tuning = null) {
     const isMuscleLike = ['muscle', 'drift', 'valkyrie'].includes(bodyType);
     const isSuvLike = ['suv', 'titan'].includes(bodyType);
@@ -2851,6 +3094,20 @@ function drawCarOnContext(targetCtx, screenX, screenY, scale, color, isPlayer = 
     const h = 45 * heightMult * scale;
     const roofW = w * (isHyper ? 0.56 : (isMuscleLike || isSuvLike) ? 0.74 : 0.65);
     const roofH = (isHyper ? 19 : isSuvLike ? 32 : 26) * scale;
+
+    // Sombra de contacto realista bajo el auto en la pista
+    targetCtx.fillStyle = 'rgba(0, 0, 0, 0.48)';
+    targetCtx.beginPath();
+    targetCtx.ellipse(screenX, screenY + 2 * scale, w * 0.58, 7 * scale, 0, 0, Math.PI * 2);
+    targetCtx.fill();
+
+    if (!lowEndLiteMode) {
+        const glowCol = (isPlayer && tuning && tuning.neonColor) ? tuning.neonColor : 'rgba(56, 189, 248, 0.28)';
+        targetCtx.fillStyle = glowCol;
+        targetCtx.beginPath();
+        targetCtx.ellipse(screenX, screenY + 3 * scale, w * 0.62, 11 * scale, 0, 0, Math.PI * 2);
+        targetCtx.fill();
+    }
 
     if (isPlayer && tuning && (tuning.nitroBoosting || (tuning.turboActive && tuning.trbLvl > 0))) {
         const flameLen = (10 + tuning.trbLvl * 5 + (tuning.nitroBoosting ? 20 : 0)) * scale;
@@ -2904,9 +3161,14 @@ function drawCarOnContext(targetCtx, screenX, screenY, scale, color, isPlayer = 
     targetCtx.closePath();
     targetCtx.fill();
 
-    targetCtx.fillStyle = showBrake ? '#ff1e1e' : '#b50000';
-    targetCtx.fillRect(screenX - w * 0.44, screenY - h * 0.7, w * 0.2, h * 0.22);
-    targetCtx.fillRect(screenX + w * 0.24, screenY - h * 0.7, w * 0.2, h * 0.22);
+    const lampR = (showBrake ? 6.2 : 5.2) * scale;
+    const lampY = screenY - h * 0.56;
+    targetCtx.strokeStyle = showBrake ? '#ff1e1e' : '#fb7185';
+    targetCtx.lineWidth = Math.max(1.6, 2.4 * scale);
+    targetCtx.beginPath();
+    targetCtx.arc(screenX - w * 0.30, lampY, lampR, 0, Math.PI * 2);
+    targetCtx.arc(screenX + w * 0.30, lampY, lampR, 0, Math.PI * 2);
+    targetCtx.stroke();
 }
 
 function drawCockpitOverlay(carColor, speedRatio, wheelAngle, carName) {
@@ -3225,38 +3487,15 @@ function draw() {
     ctx.fillStyle = theme.skyMid;
     ctx.fillRect(0, 0, WIDTH, horizonY);
 
+    drawSkylineBackdrop(horizonY, theme.sceneryStyle);
+
     ctx.fillStyle = theme.sunColor;
     ctx.beginPath();
     ctx.arc(WIDTH / 2 + roadCurve * 35, horizonY - 10, 38, 0, Math.PI * 2);
     ctx.fill();
 
-    const stripHeight = lowEndLiteMode ? 5 : (isMobilePerfMode ? 3 : 2);
-    for (let y = horizonY + stripHeight; y < HEIGHT; y += stripHeight) {
-        const dy = y - horizonY;
-        const z = (camHeight * FOV) / dy;
-        const scale = FOV / z;
-        const curveShift = roadCurve * Math.pow(z / 100, 1.8) * scale;
-        const roadCenter = (WIDTH / 2) + curveShift - (player.x * (ROAD_WIDTH * 0.5) * scale);
-        const halfRoad = (ROAD_WIDTH / 2) * scale;
-        const rumbleWidth = halfRoad * 0.12;
-        const stripe = Math.floor((z + trackOffset) / 90) % 2 === 0;
-
-        ctx.fillStyle = stripe ? theme.groundA : theme.groundB;
-        ctx.fillRect(0, y, WIDTH, stripHeight);
-
-        ctx.fillStyle = stripe ? theme.rumbleA : theme.rumbleB;
-        ctx.fillRect(roadCenter - halfRoad - rumbleWidth, y, (halfRoad + rumbleWidth) * 2, stripHeight);
-
-        ctx.fillStyle = stripe ? theme.roadA : theme.roadB;
-        ctx.fillRect(roadCenter - halfRoad, y, halfRoad * 2, stripHeight);
-
-        if (stripe) {
-            ctx.fillStyle = theme.sceneryStyle === 'neon' ? 'rgba(0, 245, 212, 0.7)' : 'rgba(255, 255, 255, 0.75)';
-            const lineW = 14 * scale;
-            ctx.fillRect(roadCenter - halfRoad * 0.33 - lineW / 2, y, lineW, stripHeight);
-            ctx.fillRect(roadCenter + halfRoad * 0.33 - lineW / 2, y, lineW, stripHeight);
-        }
-    }
+    drawRealisticRoad(horizonY, camHeight, eventObj);
+    drawTrackChevrons(horizonY, camHeight, theme.chevronColor || '#ff4ecd');
 
     const renderables = [...scenery.map(item => ({ z: item.z, render: () => drawSceneryItem(item, theme.sceneryStyle, horizonY, camHeight) }))];
     if (currentScreen === 'PLAYING') {
@@ -3298,6 +3537,10 @@ function draw() {
     const braking = currentScreen === 'PLAYING' && (keys['ArrowDown'] || keys['s'] || touchState.down);
     const turboActive = currentScreen === 'PLAYING' && (keys['ArrowUp'] || keys['w'] || touchState.up) && player.speed > 3;
 
+    if (currentScreen === 'PLAYING') {
+        drawSpeedAndBoostTrails((WIDTH / 2) + steerTilt, carY, cam.carScale, player.nitroActive);
+    }
+
     if (!blinkSkip && currentScreen !== 'GAMEOVER') {
         if (cam.firstPerson && currentScreen === 'PLAYING') {
             drawCockpitOverlay(myColor, player.speed / INTERNAL_MAX_SPEED, player.wheelAngle, myCar.name);
@@ -3314,6 +3557,8 @@ function draw() {
             });
         }
     }
+
+    drawArcadeClusterHud(speedToKmh(player.speed));
 
     for (let i = 0; i < sparks.length; i++) {
         const spk = sparks[i];
